@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monty SBI — Montgomery Small Business Initiative</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --green: #25a86f;
+      --green-dark: #4a8a6e;
+      --green-light: #a8d4be;
+      --green-pale: #e8f5ee;
+      --cream: #faf8f4;
+      --dark: #1a1a1a;
+      --mid: #555;
+      --light: #999;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250,248,244,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(105,176,144,0.2);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--green);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    /* ── HERO ── */
+ #home {
+  min-height: 60vh;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 100px 8% 60px;
+  gap: 6rem;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--green-pale) 0%, #fff 60%, #f0f7f3 100%);
+      z-index: 0;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(105,176,144,0.15) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      border-radius: 50%;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(105,176,144,0.1) 0%, transparent 70%);
+      bottom: 50px; left: -50px;
+      border-radius: 50%;
+    }
+    .hero-content {
+  position: relative; z-index: 1;
+  max-width: 600px;
+  flex: 1;
+}
+    .hero-tag {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.2rem, 7vw, 6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
+    .hero-title span { color: var(--green); }
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+    }
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .btn-outline {
+      border: 2px solid var(--green);
+      color: var(--green);
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--green); color: #fff; transform: translateY(-1px); }
+
+    /* ── HERO LOGO PLACEHOLDER ── */
+    .hero-logo-placeholder {
+  position: relative; right: unset; top: unset; transform: none;
+  margin-left: auto;
+      z-index: 1;
+      width: 340px; height: 340px;
+      background: #fff;
+      border: 2.5px dashed var(--green-light);
+      border-radius: 12px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px;
+      color: var(--green);
+    }
+    .hero-logo-placeholder svg { opacity: 0.5; }
+    .hero-logo-placeholder span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green-light);
+    }
+
+    /* ── SECTION SHELL ── */
+    section {
+      padding: 100px 5%;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+    .divider {
+      width: 48px; height: 3px;
+      background: var(--green);
+      border-radius: 2px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: #fff; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .about-card {
+      background: var(--green-pale);
+      border-radius: 8px;
+      padding: 1.75rem 1.5rem;
+      border-left: 3px solid var(--green);
+    }
+    .about-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--green-dark);
+    }
+    .about-card p {
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--mid);
+      margin-bottom: 1.25rem;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text strong { color: var(--dark); }
+
+    /* ── BOARD ── */
+    #board { background: var(--cream); }
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .board-grid .card-featured {
+      grid-column: span 3;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+    .board-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .board-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(105,176,144,0.15);
+    }
+
+    /* IMAGE PLACEHOLDER */
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(135deg, var(--green-pale) 0%, #e0eeea 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px;
+      border-bottom: 2px dashed var(--green-light);
+      position: relative;
+      min-height: 220px;
+    }
+    .img-placeholder.tall { aspect-ratio: 3 / 4; min-height: unset; }
+    .img-placeholder.featured { aspect-ratio: unset; height: 100%; border-bottom: none; border-right: 2px dashed var(--green-light); }
+    .img-placeholder svg { color: var(--green-light); }
+    .img-placeholder .ph-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .img-placeholder .ph-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--green);
+      text-align: center;
+    }
+
+    .board-info {
+      padding: 1.25rem 1.5rem 1.5rem;
+    }
+    .board-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 3px;
+    }
+    .board-info .role {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    /* Featured card layout */
+    .card-featured .board-info {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 2.5rem;
+    }
+    .card-featured .board-info h3 { font-size: 1.6rem; margin-bottom: 6px; }
+    .card-featured .board-info .role { font-size: 0.8rem; margin-bottom: 1rem; }
+    .card-featured .board-info p {
+      font-size: 0.9rem; color: var(--mid); line-height: 1.7;
+    }
+
+    /* ── CONSULTANTS ── */
+    #consultants { background: #fff; }
+    .consultant-lists {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 1rem;
+    }
+    .list-block h3 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--green-light);
+    }
+    .consultant-name {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0eeea;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+    .consultant-name::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .consultant-name.past { color: var(--light); }
+    .consultant-name.past::before { background: var(--green-light); }
+
+    /* ── PARTNERS ── */
+    #partners { background: var(--cream); }
+    .partners-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+    }
+    .partner-group h3 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--green-light);
+    }
+    .partner-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+      border-left: 3px solid var(--green);
+      font-size: 0.9rem;
+      color: var(--dark);
+      font-weight: 500;
+    }
+    .partner-icon {
+      width: 32px; height: 32px;
+      background: var(--green-pale);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--green);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* ── MEDIA ── */
+    #media { background: #fff; }
+    .media-banner {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      border-radius: 12px;
+      padding: 3.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .media-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 700;
+    }
+    .media-banner p { color: rgba(255,255,255,0.8); margin-top: 6px; font-size: 0.95rem; }
+    .btn-white {
+      background: #fff;
+      color: var(--green-dark);
+      padding: 14px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      transition: transform 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-2px); }
+
+    /* ── RECOGNITION ── */
+    #recognition { background: var(--cream); }
+    .recognition-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    }
+    .recognition-block {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2.5rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      min-height: 180px;
+      display: flex; flex-direction: column;
+    }
+    .recognition-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    .coming-soon {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--green-light);
+      text-transform: uppercase;
+      margin-top: auto;
+    }
+
+    /* ── CONNECT ── */
+    #connect { background: #fff; }
+    .connect-grid {
+  display: grid; grid-template-columns: 1fr; gap: 5rem; align-items: start;
+}
+.social-links { display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; margin-bottom: 2rem; }
+.social-link {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 18px;
+      border: 1.5px solid #e8e4de;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.2s;
+      flex: 1 1 200px;
+    }
+    .social-link:hover { border-color: var(--green); color: var(--green); }
+    .social-icon {
+      width: 34px; height: 34px;
+      background: var(--green-pale);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #e8e4de;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      background: var(--cream);
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--green);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .btn-submit {
+      background: var(--green);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: var(--green-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      padding: 2.5rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+    footer span { font-size: 0.8rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-logo-placeholder { display: none; }
+      .about-grid, .board-grid, .consultant-lists, .partners-grid, .recognition-grid, .connect-grid { grid-template-columns: 1fr; }
+      .board-grid .card-featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .card-featured .img-placeholder.featured { aspect-ratio: 4/3; height: auto; border-right: none; border-bottom: 2px dashed var(--green-light); }
+    }
+    @media (max-width: 640px) {
+      .board-grid { grid-template-columns: 1fr; }
+      .about-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">SBI</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#board">Board</a></li>
+    <li><a href="#consultants">Consultants</a></li>
+    <li><a href="#partners">Partners</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#recognition">Recognition</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Montgomery<br><span>Small Business</span><br>Initiative</h1>
+    <p class="hero-sub">Montgomery, NJ's premier student-run consulting firm. Pairing motivated students with local businesses for real-world impact.</p>
+    <div class="hero-cta">
+      <a href="https://classroom.google.com/c/NzYyNDYzNzYwNzg1?cjc=cjdguldd" class="btn-primary" target="_blank">Join SBI</a>
+      <a href="#about" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+
+  <!-- LOGO IMAGE PLACEHOLDER -->
+<img src="SBI Logo-2.png" alt="SBI Logo" style="width:500px; height:500px; object-fit:contain; position:relative; z-index:1; flex-shrink:0;"/></section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <p class="section-label">About Us</p>
+      <h2 class="section-title">Who Are We?</h2>
+      <div class="divider"></div>
+      <div class="about-text">
+        <p>The <strong>Montgomery Small Business Initiative</strong> is a nonprofit, student-run consulting and internship
+organization. SBI was founded to address a gap we observed among business-interested high school students: <strong>while many clubs teach business concepts, few provide meaningful, real-world experience</strong>.</p>
+        <p>Our mission is simple. We aim to pair <strong>motivated, business-minded students </strong> with <strong> local businesses </strong>to create <strong>mutually beneficial partnerships</strong>. Students gain hands-on exposure to real operations, and businesses receive high-quality support that frees owners and managers to focus on growth.
+</p>
+        <p>Depending on the goals of the business and the student, SBI will <strong>handpick consultants</strong> to perfectly match the business's needs, whether it be social media, financials, marketing, strategy, sales, or more. A timeframe, schedule, and all other logistics are coordinated so both parties are satisfied with the partnership.
+</p>
+<p>We also firmly believe in promoting <strong>business education </strong>and supporting the<strong> next generation of business leaders</strong>. That's why SBI hosts guest speakers, workshops, and in-person lessons, in addition to digital educational content and case studies. These can be accessed for free for all students through this website and the SBI YouTube channel.
+
+</p>
+      </div>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <h4>Social Media</h4>
+        <p>Build and grow your brand presence across all major platforms.</p>
+      </div>
+      <div class="about-card">
+        <h4>Financials</h4>
+        <p>Analysis, reporting, and financial strategy for your business.</p>
+      </div>
+      <div class="about-card">
+        <h4>Marketing</h4>
+        <p>Campaigns, outreach, and brand strategy tailored to your goals.</p>
+      </div>
+      <div class="about-card">
+        <h4>Strategy</h4>
+        <p>Growth planning, competitive analysis, and operational support.</p>
+      </div>
+       <div class="about-card">
+        <h4>Sales</h4>
+  <p>Expand your customer base and drive revenue with targeted outreach, pitch refinement, and sales strategy.</p>
+      </div>
+       <div class="about-card">
+        <h4>And More</h4>
+        <p>The possibilities are endless.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOARD -->
+<section id="board">
+  <p class="section-label">Leadership</p>
+  <h2 class="section-title">2026–2027 Board</h2>
+  <div class="divider"></div>
+
+  <div class="board-grid">
+
+    <!-- PRESIDENT — featured card -->
+   <div class="board-card">
+      <img src="SAM_1028.jpeg" alt="Dilan Mehta" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
+      <div class="board-info">
+        <h3>Dilan Mehta</h3>
+        <span class="role">President</span>
+      </div>
+    </div>
+
+    <!-- VP 1 -->
+    <div class="board-card">
+      <img src="SAM_1030.jpeg" alt="Suchir Parikh" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
+      <div class="board-info">
+        <h3>Suchir Parikh</h3>
+        <span class="role">Vice President</span>
+      </div>
+    </div>
+
+    <!-- VP 2 -->
+    <div class="board-card">
+      <img src="SAM_1033.jpeg" alt="Danel Rodriguez" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
+      <div class="board-info">
+        <h3>Danel Rodriguez</h3>
+        <span class="role">Vice President</span>
+      </div>
+    </div>
+
+    <!-- Head of Admin -->
+    <div class="board-card">
+     <img src="SAM_1023.jpeg" alt="Ryan Patel" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
+      <div class="board-info">
+        <h3>Ryan Patel</h3>
+        <span class="role">Head of Administration</span>
+      </div>
+    </div>
+
+    <!-- Director of Recruitment -->
+    <div class="board-card">
+     <img src="SAM_1037.jpeg" alt="Rey Sen" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
+
+      <div class="board-info">
+        <h3>Rey Sen</h3>
+        <span class="role">Director of Recruitment & Training</span>
+      </div>
+    </div>
+
+    <!-- Director External Affairs -->
+    <div class="board-card">
+      <img src="SAM_1042.jpeg" alt="Yuvi Ahlawat" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
+
+      <div class="board-info">
+        <h3>Yuvi Ahlawat</h3>
+        <span class="role">Director of External Affairs</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONSULTANTS -->
+<section id="consultants">
+  <p class="section-label">Our Team</p>
+  <h2 class="section-title">Consultants</h2>
+  <div class="divider"></div>
+  <p style="color:var(--mid); margin-bottom:2.5rem; max-width:560px;">SBI is proud of its consultants and all of the incredible work they do for our client businesses.</p>
+
+  <div class="consultant-lists">
+    <div class="list-block">
+      <h3>Current Consultants</h3>
+      <div class="consultant-name">Daniel Jing</div>
+      <div class="consultant-name">Ethan Fang</div>
+      <div class="consultant-name">Aroh Sakpal</div>
+      <div class="consultant-name">Myra Chopra</div>
+      <div class="consultant-name">Liyana Ansari</div>
+      <div class="consultant-name">Saanvi Lakhotiya</div>
+      <div class="consultant-name">Arjun Moorjani</div>
+      <div class="consultant-name">Rithik Chintala</div>
+      <div class="consultant-name">Tarosh Vatti</div>
+    </div>
+    <div class="list-block">
+      <h3>Past Consultants</h3>
+      <div class="consultant-name past">Vihaan Vatsa</div>
+      <div class="consultant-name past">Siddarth Goyal</div>
+      <div class="consultant-name past">Janesh Sanjai</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners">
+  <p class="section-label">Our Network</p>
+  <h2 class="section-title">Partners & Clients</h2>
+  <div class="divider"></div>
+
+  <div class="partners-grid">
+    <div class="partner-group">
+      <h3>Client Businesses</h3>
+      <div class="partner-item"><div class="partner-icon">CB</div>Code Ninjas Bridgewater</div>
+      <div class="partner-item"><div class="partner-icon">TG</div>TheeGroovement</div>
+      <div class="partner-item"><div class="partner-icon">ED</div>Expreseo Digital Marketing</div>
+      <div class="partner-item"><div class="partner-icon">WD</div>WDA Strategic Marketing</div>
+      <div class="partner-item"><div class="partner-icon">GC</div>Go To College</div>
+      <div class="partner-item"><div class="partner-icon">PR</div>Princeton Record Exchange</div>
+      <div class="partner-item"><div class="partner-icon">AW</div>All The Way Up HVAC</div>
+    </div>
+    <div class="partner-group">
+      <h3>Organizational Partners</h3>
+      <div class="partner-item"><div class="partner-icon">MB</div>Montgomery Business Association & Regional Chamber of Commerce</div>
+      <div class="partner-item"><div class="partner-icon">PC</div>Princeton Business Challenge</div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <p class="section-label">Resources</p>
+  <h2 class="section-title">SBI Media Hub</h2>
+  <div class="divider"></div>
+  <p style="color:var(--mid); margin-bottom:2.5rem; max-width:560px;">View all deliverables, documents, lessons, case studies, outreaches, workshops, and guest speaker events, free for all students.</p>
+
+  <div class="media-banner">
+    <div>
+      <h2>SBI on YouTube</h2>
+      <p>Educational content, case studies, and guest speaker recordings, all free to access.</p>
+    </div>
+    <a href="https://www.youtube.com/@MontySBI" target="_blank" class="btn-white">Visit YouTube Channel →</a>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section id="recognition">
+  <p class="section-label">Press & Testimonials</p>
+  <h2 class="section-title">Recognition</h2>
+  <div class="divider"></div>
+
+  <div class="recognition-grid">
+    <div class="recognition-block">
+      <h3>Testimonials</h3>
+      <p style="font-size:0.9rem; color:var(--mid); line-height:1.7;">Hear from the businesses and students who have experienced SBI's impact firsthand.</p>
+      <p class="coming-soon">Coming Soon</p>
+    </div>
+    <div class="recognition-block">
+      <h3>Featured In</h3>
+      <p style="font-size:0.9rem; color:var(--mid); line-height:1.7;">News coverage, articles, and press features highlighting SBI's work in the community.</p>
+      <p class="coming-soon">Coming Soon</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section id="connect">
+  <p class="section-label">Get Involved</p>
+  <h2 class="section-title">Connect With Us</h2>
+  <div class="divider"></div>
+
+  <div class="connect-grid">
+    <div>
+      <p style="color:var(--mid); margin-bottom:1.75rem; font-size:0.95rem; line-height:1.7;">Join us in our mission! Get added as a member, apply to be a consultant, or simply reach out to learn more.</p>
+      <a href="https://classroom.google.com/c/NzYyNDYzNzYwNzg1?cjc=cjdguldd" target="_blank" class="btn-primary" style="display:inline-block; margin-bottom:2rem;">Join SBI →</a>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/17w1xd8ZUH/?mibextid=wwXIfr" target="_blank" class="social-link">
+  <span class="social-icon"><i class="fab fa-facebook-f"></i></span> Facebook
+</a>
+<a href="https://www.instagram.com/montysbi/" target="_blank" class="social-link">
+  <span class="social-icon"><i class="fab fa-instagram"></i></span> Instagram — @montysbi
+</a>
+<a href="https://www.linkedin.com/company/108037028/" target="_blank" class="social-link">
+  <span class="social-icon"><i class="fab fa-linkedin-in"></i></span> LinkedIn
+</a>
+<a href="https://www.youtube.com/@MontySBI" target="_blank" class="social-link">
+  <span class="social-icon"><i class="fab fa-youtube"></i></span> YouTube — @MontySBI
+</a>
+
+      </div>
+    </div>
+    <!-- <div>
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:1.5rem; color:var(--dark);">Send Us a Message</h3>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Your name"/>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="your@email.com"/>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us about your business or how you'd like to get involved…"></textarea>
+      </div>
+      <button class="btn-submit">Send Message</button>
+    </div> -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Montgomery SBI</span>
+<a href="https://mail.google.com/mail/?view=cm&to=montgomerysbi@gmail.com" target="_blank" style="color:rgba(255,255,255,0.6); font-size:0.8rem; text-decoration:none; display:flex; align-items:center; gap:8px;">
+  <i class="fas fa-envelope"></i> montgomerysbi@gmail.com
+</a>
+  <span>© 2026 Montgomery Small Business Initiative · Montgomery, NJ</span>
+</footer>
+
+</body>
+</html>
