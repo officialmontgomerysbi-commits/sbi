@@ -865,5 +865,25 @@ organization. SBI was founded to address a gap we observed among business-intere
   <span>© 2026 Montgomery Small Business Initiative · Montgomery, NJ</span>
 </footer>
 
+<script>
+  let clickCount = 0;
+  let clickTimer;
+
+  document.querySelector('a[href="#partners"]').addEventListener('click', function() {
+    clickCount++;
+    clearTimeout(clickTimer);
+
+    if (clickCount === 4) {
+      clickCount = 0;
+      const audio = new Audio('audio2.mp3');
+      audio.play();
+    }
+
+    clickTimer = setTimeout(() => {
+      clickCount = 0;
+    }, 1500);
+  });
+</script>
+
 </body>
 </html>
