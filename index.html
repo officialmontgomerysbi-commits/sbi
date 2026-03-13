@@ -737,6 +737,8 @@ organization. SBI was founded to address a gap we observed among business-intere
 <section id="partners">
   <p class="section-label">Our Network</p>
   <h2 class="section-title">Partners & Clients</h2>
+    <img id="easter-egg-img" src="easteregg.jpg" alt="easter egg" style="display:none; width:300px; border-radius:10px; margin-bottom:2rem;"/>
+
   <div class="divider"></div>
 
   <div class="partners-grid">
@@ -875,8 +877,12 @@ organization. SBI was founded to address a gap we observed among business-intere
 
     if (clickCount === 4) {
       clickCount = 0;
-      const audio = new Audio('audio2.mp3');
+      const audio = new Audio('audio3.mp3');
       audio.play();
+
+      const img = document.getElementById('easter-egg-img');
+      img.style.display = 'block';
+      setTimeout(() => { img.style.display = 'none'; }, 17500);
     }
 
     clickTimer = setTimeout(() => {
