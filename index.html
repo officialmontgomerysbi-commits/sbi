@@ -545,17 +545,56 @@
     }
     footer span { font-size: 1rem; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .hero-logo-placeholder { display: none; }
-      .about-grid, .board-grid, .consultant-lists, .partners-grid, .recognition-grid, .connect-grid { grid-template-columns: 1fr; }
-      .board-grid .card-featured { grid-column: span 1; grid-template-columns: 1fr; }
-      .card-featured .img-placeholder.featured { aspect-ratio: 4/3; height: auto; border-right: none; border-bottom: 2px dashed var(--green-light); }
-    }
-    @media (max-width: 640px) {
+   /* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-logo-placeholder { display: none; }
+  .about-grid, .board-grid, .consultant-lists, .partners-grid, .recognition-grid, .connect-grid { grid-template-columns: 1fr; }
+  .board-grid .card-featured { grid-column: span 1; grid-template-columns: 1fr; }
+  .card-featured .img-placeholder.featured { aspect-ratio: 4/3; height: auto; border-right: none; border-bottom: 2px dashed var(--green-light); }
+}
+  @media (max-width: 640px) {
       .board-grid { grid-template-columns: 1fr; }
       .about-cards { grid-template-columns: 1fr; }
     }
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.hamburger span {
+  width: 24px; height: 2px;
+  background: var(--dark);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.nav-mobile-open .nav-links {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: rgba(250,248,244,0.98);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    border-bottom: 1px solid rgba(105,176,144,0.2);
+    padding: 1rem 0;
+  }
+  .nav-links li { width: 100%; text-align: center; }
+  .nav-links a { display: block; padding: 14px 0; }
+}
+  
   </style>
 </head>
 <body>
@@ -563,6 +602,9 @@
 <!-- NAV -->
 <nav>
   <a href="#home" class="nav-logo">SBI</a>
+  <button class="hamburger" onclick="document.querySelector('nav').classList.toggle('nav-mobile-open')">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#board">Board</a></li>
@@ -579,7 +621,7 @@
   <div class="hero-bg"></div>
   <div class="hero-content">
     <h1 class="hero-title">Montgomery<br><span>Small Business</span><br>Initiative</h1>
-    <p class="hero-sub">Montgomery, NJ's premier student-run consulting firm. Pairing motivated students with local businesses for real-world impact.</p>
+    <p class="hero-sub">The Montgomery Small Business Initiative is a nonprofit, student-run consulting and internship organization, serving Montgomery, the Greater Princeton area, and beyond.</p>
     <div class="hero-cta">
       <a href="https://classroom.google.com/c/NzYyNDYzNzYwNzg1?cjc=cjdguldd" class="btn-primary" target="_blank">Join SBI</a>
       <a href="#about" class="btn-outline">Learn More</a>
@@ -777,14 +819,14 @@ organization. SBI was founded to address a gap we observed among business-intere
     <a href="https://www.youtube.com/@MontySBI" target="_blank" class="btn-white">Visit YouTube Channel →</a>
   </div>
   
-  <div class="media-banner" style="margin-top: 1.5rem">
+<div class="media-banner" style="margin-top:1.5rem; background: linear-gradient(135deg, #2c6e8a 0%, #1a4f63 100%);">
     <div>
       <h2>Case Studies</h2>
       <p>Everything we disect, all in one place.</p>
     </div>
     <a href="https://drive.google.com/drive/folders/19Mm2iuYH4lD9Bi2DoaaYoevh9fJI16VT" target="_blank" class="btn-white">View →</a>
   </div>
-  <div class="media-banner" style="margin-top: 1.5rem">
+<div class="media-banner" style="margin-top:1.5rem; background: linear-gradient(135deg, #6b4fa0 0%, #4a3070 100%);">
     <div>
       <h2>Weekly Newsletter</h2>
       <p>Business insights from SBI's student consultants, straight to your inbox.</p>
@@ -828,13 +870,13 @@ organization. SBI was founded to address a gap we observed among business-intere
   <span class="social-icon"><i class="fab fa-facebook-f"></i></span> Facebook
 </a>
 <a href="https://www.instagram.com/montysbi/" target="_blank" class="social-link">
-  <span class="social-icon"><i class="fab fa-instagram"></i></span> Instagram — @montysbi
+  <span class="social-icon"><i class="fab fa-instagram"></i></span> Instagram
 </a>
 <a href="https://www.linkedin.com/company/108037028/" target="_blank" class="social-link">
   <span class="social-icon"><i class="fab fa-linkedin-in"></i></span> LinkedIn
 </a>
 <a href="https://www.youtube.com/@MontySBI" target="_blank" class="social-link">
-  <span class="social-icon"><i class="fab fa-youtube"></i></span> YouTube — @MontySBI
+  <span class="social-icon"><i class="fab fa-youtube"></i></span> YouTube
 </a>
 
       </div>
