@@ -217,11 +217,17 @@
       gap: 1.25rem;
     }
     .about-card {
-      background: var(--green-pale);
-      border-radius: 8px;
-      padding: 1.75rem 1.5rem;
-      border-left: 3px solid var(--green);
-    }
+  background: var(--green-pale);
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem;
+  border-left: 3px solid var(--green);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(105,176,144,0.2);
+  background: #d6eee2;
+}
     .about-card h4 {
       font-family: 'Playfair Display', serif;
       font-size: 1rem;
