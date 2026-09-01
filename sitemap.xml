@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://montgomerysbi.com/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+
+    <image:image>
+      <image:loc>https://montgomerysbi.com/SBI%20Logo-2.png</image:loc>
+      <image:title>Montgomery Small Business Initiative logo</image:title>
+      <image:caption>Official logo of the Montgomery Small Business Initiative, a student-run consulting nonprofit in Montgomery, NJ</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://montgomerysbi.com/SAM_1028.jpeg</image:loc>
+      <image:title>Dilan Mehta, President</image:title>
+      <image:caption>Dilan Mehta, President of the Montgomery Small Business Initiative in Montgomery, NJ</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://montgomerysbi.com/SAM_1030.jpeg</image:loc>
+      <image:title>Suchir Parikh, Vice President</image:title>
+      <image:caption>Suchir Parikh, Vice President of the Montgomery Small Business Initiative</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://montgomerysbi.com/SAM_1033.jpeg</image:loc>
+      <image:title>Danel Rodriguez, Vice President</image:title>
+      <image:caption>Danel Rodriguez, Vice President of the Montgomery Small Business Initiative</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://montgomerysbi.com/SAM_1023.jpeg</image:loc>
+      <image:title>Ryan Patel, Head of Administration</image:title>
+      <image:caption>Ryan Patel, Head of Administration at the Montgomery Small Business Initiative in Skillman, New Jersey</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://montgomerysbi.com/SAM_1037.jpeg</image:loc>
+      <image:title>Rey Sen, Director of Recruitment and Training</image:title>
+      <image:caption>Rey Sen, Director of Recruitment and Training for the Montgomery Small Business Initiative</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://montgomerysbi.com/IMG_6339.jpeg</image:loc>
+      <image:title>Yuvi Ahlawat, Director of External Affairs</image:title>
+      <image:caption>Yuvi Ahlawat, Director of External Affairs at the Montgomery Small Business Initiative</image:caption>
+    </image:image>
+
+  </url>
+</urlset>

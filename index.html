@@ -2,42 +2,162 @@
 <html lang="en">
 <head>
 
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Monty SBI — Montgomery Small Business Initiative</title>
+
+  <!-- ── PRIMARY SEO ── -->
+  <title>Montgomery Small Business Initiative | Student Consulting in Montgomery, NJ</title>
+  <meta name="description" content="Montgomery Small Business Initiative (Monty SBI) is a nonprofit, student-run consulting firm in Montgomery, NJ, pairing student consultants with local businesses."/>
+  <link rel="canonical" href="https://montgomerysbi.com/"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+  <meta name="author" content="Montgomery Small Business Initiative"/>
+  <meta name="theme-color" content="#25a86f"/>
+
+  <!-- ── OPEN GRAPH (Facebook, LinkedIn, iMessage, Slack link previews) ── -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Montgomery Small Business Initiative"/>
+  <meta property="og:title" content="Montgomery Small Business Initiative | Student Consulting in Montgomery, NJ"/>
+  <meta property="og:description" content="Montgomery, NJ's premier student-run consulting firm. Pairing motivated students with local businesses for real-world impact."/>
+  <meta property="og:url" content="https://montgomerysbi.com/"/>
+  <meta property="og:image" content="https://montgomerysbi.com/SBI%20Logo-2.png"/>
+  <meta property="og:image:alt" content="Official logo of the Montgomery Small Business Initiative"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!-- ── TWITTER / X CARD ── -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Montgomery Small Business Initiative | Student Consulting in Montgomery, NJ"/>
+  <meta name="twitter:description" content="Montgomery, NJ's premier student-run consulting firm. Pairing motivated students with local businesses for real-world impact."/>
+  <meta name="twitter:image" content="https://montgomerysbi.com/SBI%20Logo-2.png"/>
+
+  <!-- ── FONTS & ICONS ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="icon" type="image/png" href="SBI Logo-2.png">
+  <link rel="icon" type="image/png" href="SBI Logo-2.png"/>
+  <link rel="apple-touch-icon" href="SBI Logo-2.png"/>
 
-  <!-- Google Structured Data (Schema Markup) -->
+  <!-- ── STRUCTURED DATA (Schema.org) ── -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Montgomery Small Business Initiative",
-    "url": "https://montgomerysbi.com",
-    "logo": "https://montgomerysbi.com/SBI%20Logo-2.png",
-    "image": [
-      "https://montgomerysbi.com/SAM_1028.jpeg",
-      "https://montgomerysbi.com/SAM_1030.jpeg",
-      "https://montgomerysbi.com/SAM_1033.jpeg",
-      "https://montgomerysbi.com/SAM_1023.jpeg",
-      "https://montgomerysbi.com/SAM_1037.jpeg",
-      "https://montgomerysbi.com/IMG_6339.jpeg"
-    ],
-    "sameAs": [
-      "https://www.instagram.com/montysbi/",
-      "https://www.linkedin.com/company/108037028/",
-      "https://www.facebook.com/share/17w1xd8ZUH/",
-      "https://www.youtube.com/@MontySBI"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Montgomery",
-      "addressRegion": "NJ",
-      "addressCountry": "US"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://montgomerysbi.com/#organization",
+        "name": "Montgomery Small Business Initiative",
+        "alternateName": ["Monty SBI", "Montgomery SBI", "MontySBI", "SBI"],
+        "description": "A nonprofit, student-run consulting and internship organization serving Montgomery, the Greater Princeton Area, and beyond.",
+        "url": "https://montgomerysbi.com/",
+        "email": "officialmontgomerysbi@gmail.com",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://montgomerysbi.com/#logo",
+          "url": "https://montgomerysbi.com/SBI%20Logo-2.png",
+          "caption": "Official logo of the Montgomery Small Business Initiative"
+        },
+        "image": { "@id": "https://montgomerysbi.com/#logo" },
+        "sameAs": [
+          "https://www.instagram.com/montysbi/",
+          "https://www.linkedin.com/company/108037028/",
+          "https://www.facebook.com/share/17w1xd8ZUH/",
+          "https://www.youtube.com/@MontySBI",
+          "https://sbiinsider.substack.com"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Montgomery",
+          "addressRegion": "NJ",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          { "@type": "Place", "name": "Montgomery Township, New Jersey" },
+          { "@type": "Place", "name": "Skillman, New Jersey" },
+          { "@type": "Place", "name": "Princeton, New Jersey" },
+          { "@type": "Place", "name": "Belle Mead, New Jersey" }
+        ],
+        "knowsAbout": [
+          "Small business consulting",
+          "Social media marketing",
+          "Financial analysis",
+          "Marketing strategy",
+          "Business strategy",
+          "Sales strategy",
+          "Business education"
+        ],
+        "member": [
+          { "@type": "Person", "name": "Dilan Mehta", "jobTitle": "President" },
+          { "@type": "Person", "name": "Suchir Parikh", "jobTitle": "Vice President" },
+          { "@type": "Person", "name": "Danel Rodriguez", "jobTitle": "Vice President" },
+          { "@type": "Person", "name": "Ryan Patel", "jobTitle": "Head of Administration" },
+          { "@type": "Person", "name": "Rey Sen", "jobTitle": "Director of Recruitment & Training" },
+          { "@type": "Person", "name": "Yuvi Ahlawat", "jobTitle": "Director of External Affairs" }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://montgomerysbi.com/#website",
+        "url": "https://montgomerysbi.com/",
+        "name": "Montgomery Small Business Initiative",
+        "alternateName": "Monty SBI",
+        "inLanguage": "en-US",
+        "publisher": { "@id": "https://montgomerysbi.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://montgomerysbi.com/#webpage",
+        "url": "https://montgomerysbi.com/",
+        "name": "Montgomery Small Business Initiative | Student Consulting in Montgomery, NJ",
+        "description": "Montgomery Small Business Initiative (Monty SBI) is a nonprofit, student-run consulting firm in Montgomery, NJ, pairing student consultants with local businesses.",
+        "isPartOf": { "@id": "https://montgomerysbi.com/#website" },
+        "about": { "@id": "https://montgomerysbi.com/#organization" },
+        "primaryImageOfPage": { "@id": "https://montgomerysbi.com/#logo" },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://montgomerysbi.com/SAM_1028.jpeg",
+        "url": "https://montgomerysbi.com/SAM_1028.jpeg",
+        "caption": "Dilan Mehta, President of the Montgomery Small Business Initiative",
+        "representativeOfPage": false,
+        "creditText": "Montgomery Small Business Initiative"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://montgomerysbi.com/SAM_1030.jpeg",
+        "url": "https://montgomerysbi.com/SAM_1030.jpeg",
+        "caption": "Suchir Parikh, Vice President of the Montgomery Small Business Initiative",
+        "creditText": "Montgomery Small Business Initiative"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://montgomerysbi.com/SAM_1033.jpeg",
+        "url": "https://montgomerysbi.com/SAM_1033.jpeg",
+        "caption": "Danel Rodriguez, Vice President of the Montgomery Small Business Initiative",
+        "creditText": "Montgomery Small Business Initiative"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://montgomerysbi.com/SAM_1023.jpeg",
+        "url": "https://montgomerysbi.com/SAM_1023.jpeg",
+        "caption": "Ryan Patel, Head of Administration at the Montgomery Small Business Initiative",
+        "creditText": "Montgomery Small Business Initiative"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://montgomerysbi.com/SAM_1037.jpeg",
+        "url": "https://montgomerysbi.com/SAM_1037.jpeg",
+        "caption": "Rey Sen, Director of Recruitment and Training at the Montgomery Small Business Initiative",
+        "creditText": "Montgomery Small Business Initiative"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://montgomerysbi.com/IMG_6339.jpeg",
+        "url": "https://montgomerysbi.com/IMG_6339.jpeg",
+        "caption": "Yuvi Ahlawat, Director of External Affairs at the Montgomery Small Business Initiative",
+        "creditText": "Montgomery Small Business Initiative"
+      }
+    ]
   }
   </script>
 
@@ -63,6 +183,20 @@
       color: var(--dark);
       overflow-x: hidden;
     }
+
+    /* Skip link for keyboard and screen reader users */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--green);
+      color: #fff;
+      padding: 12px 20px;
+      z-index: 200;
+      border-radius: 0 0 4px 0;
+      font-weight: 600;
+    }
+    .skip-link:focus { left: 0; }
 
     /* ── NAV ── */
     nav {
@@ -95,15 +229,15 @@
     .nav-links a:hover { color: var(--green); }
 
     /* ── HERO ── */
- #home {
-  min-height: 60vh;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 100px 8% 60px;
-  gap: 6rem;
-  position: relative;
-  overflow: hidden;
-  margin: 0 auto;
-}
+    #home {
+      min-height: 60vh;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 100px 8% 60px;
+      gap: 6rem;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+    }
     .hero-bg {
       position: absolute; inset: 0;
       background: linear-gradient(135deg, var(--green-pale) 0%, #fff 60%, #f0f7f3 100%);
@@ -126,10 +260,10 @@
       border-radius: 50%;
     }
     .hero-content {
-  position: relative; z-index: 1;
-  max-width: 600px;
-  flex: 1;
-}
+      position: relative; z-index: 1;
+      max-width: 600px;
+      flex: 1;
+    }
     .hero-tag {
       display: inline-block;
       background: var(--green);
@@ -143,14 +277,14 @@
       margin-bottom: 1.5rem;
     }
     .hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3.2rem, 7vw, 6rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: var(--dark);
-  margin-bottom: 1.5rem;
-}
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
     .hero-title span { color: var(--green); }
     .hero-sub {
       font-size: 1.1rem;
@@ -188,26 +322,17 @@
     }
     .btn-outline:hover { background: var(--green); color: #fff; transform: translateY(-1px); }
 
-    /* ── HERO LOGO PLACEHOLDER ── */
-    .hero-logo-placeholder {
-  position: relative; right: unset; top: unset; transform: none;
-  margin-left: auto;
+    /* ── HERO LOGO ── */
+    .hero-logo {
+      position: relative;
       z-index: 1;
-      width: 340px; height: 340px;
-      background: #fff;
-      border: 2.5px dashed var(--green-light);
-      border-radius: 12px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 10px;
-      color: var(--green);
-    }
-    .hero-logo-placeholder svg { opacity: 0.5; }
-    .hero-logo-placeholder span {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--green-light);
+      width: 500px;
+      max-width: 40vw;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      flex-shrink: 0;
+      margin-left: auto;
     }
 
     /* ── SECTION SHELL ── */
@@ -252,17 +377,17 @@
       gap: 1.25rem;
     }
     .about-card {
-  background: var(--green-pale);
-  border-radius: 8px;
-  padding: 1.75rem 1.5rem;
-  border-left: 3px solid var(--green);
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-}
-.about-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(105,176,144,0.2);
-  background: #d6eee2;
-}
+      background: var(--green-pale);
+      border-radius: 8px;
+      padding: 1.75rem 1.5rem;
+      border-left: 3px solid var(--green);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .about-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(105,176,144,0.2);
+      background: #d6eee2;
+    }
     .about-card h4 {
       font-family: 'Playfair Display', serif;
       font-size: 1rem;
@@ -312,35 +437,12 @@
       transform: translateY(-4px);
       box-shadow: 0 10px 30px rgba(105,176,144,0.15);
     }
-
-    /* IMAGE PLACEHOLDER */
-    .img-placeholder {
+    .board-photo {
       width: 100%;
       aspect-ratio: 1 / 1;
-      background: linear-gradient(135deg, var(--green-pale) 0%, #e0eeea 100%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 10px;
-      border-bottom: 2px dashed var(--green-light);
-      position: relative;
-      min-height: 220px;
-    }
-    .img-placeholder.tall { aspect-ratio: 3 / 4; min-height: unset; }
-    .img-placeholder.featured { aspect-ratio: unset; height: 100%; border-bottom: none; border-right: 2px dashed var(--green-light); }
-    .img-placeholder svg { color: var(--green-light); }
-    .img-placeholder .ph-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--green-light);
-      text-align: center;
-      padding: 0 1rem;
-    }
-    .img-placeholder .ph-name {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--green);
-      text-align: center;
+      object-fit: cover;
+      display: block;
+      background: var(--green-pale);
     }
 
     .board-info {
@@ -359,17 +461,6 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--green);
-    }
-
-    /* Featured card layout */
-    .card-featured .board-info {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 2.5rem;
-    }
-    .card-featured .board-info h3 { font-size: 1.6rem; margin-bottom: 6px; }
-    .card-featured .board-info .role { font-size: 0.8rem; margin-bottom: 1rem; }
-    .card-featured .board-info p {
-      font-size: 0.9rem; color: var(--mid); line-height: 1.7;
     }
 
     /* ── CONSULTANTS ── */
@@ -505,10 +596,10 @@
     /* ── CONNECT ── */
     #connect { background: #fff; }
     .connect-grid {
-  display: grid; grid-template-columns: 1fr; gap: 5rem; align-items: start;
-}
-.social-links { display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; margin-bottom: 2rem; }
-.social-link {
+      display: grid; grid-template-columns: 1fr; gap: 5rem; align-items: start;
+    }
+    .social-links { display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; margin-bottom: 2rem; }
+    .social-link {
       display: flex; align-items: center; gap: 12px;
       padding: 18px 18px;
       border: 1.5px solid #e8e4de;
@@ -530,45 +621,8 @@
       font-size: 0.9rem;
       font-weight: 700;
     }
-    .form-group { margin-bottom: 1.2rem; }
-    .form-group label {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 6px;
-    }
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid #e8e4de;
-      border-radius: 6px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      background: var(--cream);
-      color: var(--dark);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus, .form-group textarea:focus {
-      border-color: var(--green);
-    }
-    .form-group textarea { resize: vertical; min-height: 100px; }
-    .btn-submit {
-      background: var(--green);
-      color: #fff;
-      border: none;
-      padding: 14px 32px;
-      border-radius: 4px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .btn-submit:hover { background: var(--green-dark); }
+    .contact-email { color: var(--green); font-weight: 600; text-decoration: none; }
+    .contact-email:hover { text-decoration: underline; }
 
     /* ── FOOTER ── */
     footer {
@@ -585,65 +639,83 @@
       color: var(--green);
     }
     footer span { font-size: 1rem; }
+    .footer-email {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-email:hover { color: var(--green-light); }
 
-   /* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .hero-logo-placeholder { display: none; }
-  .about-grid, .board-grid, .consultant-lists, .partners-grid, .recognition-grid, .connect-grid { grid-template-columns: 1fr; }
-  .board-grid .card-featured { grid-column: span 1; grid-template-columns: 1fr; }
-  .card-featured .img-placeholder.featured { aspect-ratio: 4/3; height: auto; border-right: none; border-bottom: 2px dashed var(--green-light); }
-}
-  @media (max-width: 640px) {
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #home { flex-direction: column; gap: 2.5rem; text-align: left; }
+      .hero-logo { max-width: 70vw; width: 320px; margin: 0 auto; }
+      .about-grid, .board-grid, .consultant-lists, .partners-grid, .recognition-grid, .connect-grid { grid-template-columns: 1fr; }
+      .board-grid .card-featured { grid-column: span 1; grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
       .board-grid { grid-template-columns: 1fr; }
       .about-cards { grid-template-columns: 1fr; }
+      .hero-logo { display: none; }
+      section { padding: 70px 6%; }
+      .media-banner { padding: 2rem; }
     }
 
-/* ── HAMBURGER ── */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 4px;
-}
-.hamburger span {
-  width: 24px; height: 2px;
-  background: var(--dark);
-  border-radius: 2px;
-  transition: all 0.3s;
-}
-.nav-mobile-open .nav-links {
-  display: flex;
-}
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      width: 24px; height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .nav-mobile-open .nav-links {
+      display: flex;
+    }
 
-@media (max-width: 768px) {
-  .hamburger { display: flex; }
-  .nav-links {
-    display: none;
-    position: fixed;
-    top: 64px; left: 0; right: 0;
-    background: rgba(250,248,244,0.98);
-    backdrop-filter: blur(12px);
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    border-bottom: 1px solid rgba(105,176,144,0.2);
-    padding: 1rem 0;
-  }
-  .nav-links li { width: 100%; text-align: center; }
-  .nav-links a { display: block; padding: 14px 0; }
-}
-  
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px; left: 0; right: 0;
+        background: rgba(250,248,244,0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        border-bottom: 1px solid rgba(105,176,144,0.2);
+        padding: 1rem 0;
+      }
+      .nav-links li { width: 100%; text-align: center; }
+      .nav-links a { display: block; padding: 14px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+    }
   </style>
 </head>
 <body>
 
+<a href="#about" class="skip-link">Skip to main content</a>
+
 <!-- NAV -->
 <nav>
   <a href="#home" class="nav-logo">SBI</a>
-  <button class="hamburger" onclick="document.querySelector('nav').classList.toggle('nav-mobile-open')">
+  <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" onclick="const n=document.querySelector('nav');n.classList.toggle('nav-mobile-open');this.setAttribute('aria-expanded',n.classList.contains('nav-mobile-open'));">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links">
@@ -664,13 +736,17 @@
     <h1 class="hero-title">Montgomery<br><span>Small Business</span><br>Initiative</h1>
     <p class="hero-sub">Montgomery, NJ's premier student-run consulting firm. Pairing motivated students with local businesses for real-world impact.</p>
     <div class="hero-cta">
-      <a href="https://classroom.google.com/c/NzYyNDYzNzYwNzg1?cjc=cjdguldd" class="btn-primary" target="_blank">Join SBI</a>
+      <a href="https://classroom.google.com/c/NzYyNDYzNzYwNzg1?cjc=cjdguldd" class="btn-primary" target="_blank" rel="noopener">Join SBI</a>
       <a href="#about" class="btn-outline">Learn More</a>
     </div>
   </div>
 
-  <!-- LOGO IMAGE PLACEHOLDER -->
-<img src="SBI Logo-2.png" alt="Official logo of the Montgomery Small Business Initiative student-run consulting non-profit in Montgomery NJ" style="width:500px; height:500px; object-fit:contain; position:relative; z-index:1; flex-shrink:0;"/></section>
+  <img src="SBI Logo-2.png"
+       alt="Official logo of the Montgomery Small Business Initiative student-run consulting nonprofit in Montgomery NJ"
+       class="hero-logo"
+       fetchpriority="high"
+       decoding="async"/>
+</section>
 
 <!-- ABOUT -->
 <section id="about">
@@ -680,15 +756,10 @@
       <h2 class="section-title">Who Are We?</h2>
       <div class="divider"></div>
       <div class="about-text">
-        <p>The <strong>Montgomery Small Business Initiative</strong> is a nonprofit, student-run consulting and internship
-organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI was founded to address a gap we observed among business-interested high school students: <strong>while many clubs teach business concepts, few provide meaningful, real-world experience</strong>.</p>
-        <p>Our mission is simple. We aim to pair <strong>motivated, business-minded students </strong> with <strong> local businesses </strong>to create <strong>mutually beneficial partnerships</strong>. Students gain hands-on exposure to real operations, and businesses receive high-quality support that frees owners and managers to focus on growth.
-</p>
-        <p>Depending on the goals of the business and the student, SBI will <strong>handpick consultants</strong> to perfectly match the business's needs, whether it be social media, financials, marketing, strategy, sales, or more. A timeframe, schedule, and all other logistics are coordinated so both parties are satisfied with the partnership.
-</p>
-<p>We also firmly believe in promoting <strong>business education </strong>and supporting the<strong> next generation of business leaders</strong>. That's why SBI hosts guest speakers, workshops, and in-person lessons, in addition to digital educational content and case studies. These can be accessed for free for all students through this website and the SBI YouTube channel.
-
-</p>
+        <p>The <strong>Montgomery Small Business Initiative</strong> is a nonprofit, student-run consulting and internship organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI was founded to address a gap we observed among business-interested high school students: <strong>while many clubs teach business concepts, few provide meaningful, real-world experience</strong>.</p>
+        <p>Our mission is simple. We aim to pair <strong>motivated, business-minded students</strong> with <strong>local businesses</strong> to create <strong>mutually beneficial partnerships</strong>. Students gain hands-on exposure to real operations, and businesses receive high-quality support that frees owners and managers to focus on growth.</p>
+        <p>Depending on the goals of the business and the student, SBI will <strong>handpick consultants</strong> to perfectly match the business's needs, whether it be social media, financials, marketing, strategy, sales, or more. A timeframe, schedule, and all other logistics are coordinated so both parties are satisfied with the partnership.</p>
+        <p>We also firmly believe in promoting <strong>business education</strong> and supporting the <strong>next generation of business leaders</strong>. That's why SBI hosts guest speakers, workshops, and in-person lessons, in addition to digital educational content and case studies. These can be accessed for free for all students through this website and the SBI YouTube channel.</p>
       </div>
     </div>
     <div class="about-cards">
@@ -708,11 +779,11 @@ organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI wa
         <h4>Strategy</h4>
         <p>Growth planning, competitive analysis, and operational support.</p>
       </div>
-       <div class="about-card">
+      <div class="about-card">
         <h4>Sales</h4>
-  <p>Expand your customer base and drive revenue with targeted outreach, pitch refinement, and sales strategy.</p>
+        <p>Expand your customer base and drive revenue with targeted outreach, pitch refinement, and sales strategy.</p>
       </div>
-       <div class="about-card">
+      <div class="about-card">
         <h4>And More</h4>
         <p>The possibilities are endless.</p>
       </div>
@@ -723,14 +794,15 @@ organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI wa
 <!-- BOARD -->
 <section id="board">
   <p class="section-label">Leadership</p>
-  <h2 class="section-title">2026–2027 Board</h2>
+  <h2 class="section-title">2026&ndash;2027 Board</h2>
   <div class="divider"></div>
 
   <div class="board-grid">
 
-    <!-- PRESIDENT — featured card -->
-   <div class="board-card">
-      <img src="SAM_1028.jpeg" alt="Dilan Mehta, President of Montgomery Small Business Initiative in Montgomery NJ" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
+    <!-- President -->
+    <div class="board-card">
+      <img src="SAM_1028.jpeg" class="board-photo" loading="lazy" decoding="async"
+           alt="Dilan Mehta, President of the Montgomery Small Business Initiative in Montgomery NJ"/>
       <div class="board-info">
         <h3>Dilan Mehta</h3>
         <span class="role">President</span>
@@ -739,7 +811,8 @@ organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI wa
 
     <!-- VP 1 -->
     <div class="board-card">
-      <img src="SAM_1030.jpeg" alt="Suchir Parikh, Vice President of Montgomery Small Business Initiative student consulting" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
+      <img src="SAM_1030.jpeg" class="board-photo" loading="lazy" decoding="async"
+           alt="Suchir Parikh, Vice President of the Montgomery Small Business Initiative student consulting organization"/>
       <div class="board-info">
         <h3>Suchir Parikh</h3>
         <span class="role">Vice President</span>
@@ -748,7 +821,8 @@ organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI wa
 
     <!-- VP 2 -->
     <div class="board-card">
-      <img src="SAM_1033.jpeg" alt="Danel Rodriguez, Vice President of Montgomery Small Business Initiative student consulting network" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
+      <img src="SAM_1033.jpeg" class="board-photo" loading="lazy" decoding="async"
+           alt="Danel Rodriguez, Vice President of the Montgomery Small Business Initiative student consulting network"/>
       <div class="board-info">
         <h3>Danel Rodriguez</h3>
         <span class="role">Vice President</span>
@@ -757,7 +831,8 @@ organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI wa
 
     <!-- Head of Admin -->
     <div class="board-card">
-     <img src="SAM_1023.jpeg" alt="Ryan Patel, Head of Administration at Montgomery Small Business Initiative in Skillman New Jersey" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
+      <img src="SAM_1023.jpeg" class="board-photo" loading="lazy" decoding="async"
+           alt="Ryan Patel, Head of Administration at the Montgomery Small Business Initiative in Skillman New Jersey"/>
       <div class="board-info">
         <h3>Ryan Patel</h3>
         <span class="role">Head of Administration</span>
@@ -766,18 +841,18 @@ organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI wa
 
     <!-- Director of Recruitment -->
     <div class="board-card">
-     <img src="SAM_1037.jpeg" alt="Rey Sen, Director of Recruitment and Training for Montgomery Small Business Initiative student consulting" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
-
+      <img src="SAM_1037.jpeg" class="board-photo" loading="lazy" decoding="async"
+           alt="Rey Sen, Director of Recruitment and Training for the Montgomery Small Business Initiative student consulting organization"/>
       <div class="board-info">
         <h3>Rey Sen</h3>
-        <span class="role">Director of Recruitment & Training</span>
+        <span class="role">Director of Recruitment &amp; Training</span>
       </div>
     </div>
 
     <!-- Director External Affairs -->
     <div class="board-card">
-      <img src="IMG_6339.jpeg" alt="Yuvi Ahlawat, Director of External Affairs at Montgomery Small Business Initiative" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
-
+      <img src="IMG_6339.jpeg" class="board-photo" loading="lazy" decoding="async"
+           alt="Yuvi Ahlawat, Director of External Affairs at the Montgomery Small Business Initiative"/>
       <div class="board-info">
         <h3>Yuvi Ahlawat</h3>
         <span class="role">Director of External Affairs</span>
@@ -819,8 +894,8 @@ organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI wa
 <!-- PARTNERS -->
 <section id="partners">
   <p class="section-label">Our Network</p>
-  <h2 class="section-title">Partners & Clients</h2>
-    <img id="easter-egg-img" src="easteregg.jpg" alt="easter egg" style="display:none; width:300px; border-radius:10px; margin-bottom:2rem;"/>
+  <h2 class="section-title">Partners &amp; Clients</h2>
+  <img id="easter-egg-img" src="easteregg.jpg" alt="" style="display:none; width:300px; border-radius:10px; margin-bottom:2rem;"/>
 
   <div class="divider"></div>
 
@@ -834,12 +909,12 @@ organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI wa
       <div class="partner-item"><div class="partner-icon">GC</div>Go To College</div>
       <div class="partner-item"><div class="partner-icon">PR</div>Princeton Record Exchange</div>
       <div class="partner-item"><div class="partner-icon">AW</div>All The Way Up HVAC</div>
-       <div class="partner-item"><div class="partner-icon">LH</div>Lana Health and Wellness</div>
-       <div class="partner-item"><div class="partner-icon">MD</div>Montgomery Dental Loft</div>
+      <div class="partner-item"><div class="partner-icon">LH</div>Lana Health and Wellness</div>
+      <div class="partner-item"><div class="partner-icon">MD</div>Montgomery Dental Loft</div>
     </div>
     <div class="partner-group">
       <h3>Organizational Partners</h3>
-      <div class="partner-item"><div class="partner-icon">MB</div>Montgomery Business Association & Regional Chamber of Commerce</div>
+      <div class="partner-item"><div class="partner-icon">MB</div>Montgomery Business Association &amp; Regional Chamber of Commerce</div>
       <div class="partner-item"><div class="partner-icon">PC</div>Princeton Business Challenge</div>
     </div>
   </div>
@@ -857,28 +932,29 @@ organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI wa
       <h2>SBI on YouTube</h2>
       <p>Educational content, case studies, and guest speaker recordings, all free to access.</p>
     </div>
-    <a href="https://www.youtube.com/@MontySBI" target="_blank" class="btn-white">Visit YouTube Channel →</a>
+    <a href="https://www.youtube.com/@MontySBI" target="_blank" rel="noopener" class="btn-white">Visit YouTube Channel &rarr;</a>
   </div>
-  
-<div class="media-banner" style="margin-top:1.5rem; background: linear-gradient(135deg, #2c6e8a 0%, #1a4f63 100%);">
+
+  <div class="media-banner" style="margin-top:1.5rem; background: linear-gradient(135deg, #2c6e8a 0%, #1a4f63 100%);">
     <div>
       <h2>Case Studies</h2>
-      <p>Everything we disect, all in one place.</p>
+      <p>Everything we dissect, all in one place.</p>
     </div>
-    <a href="https://drive.google.com/drive/folders/19Mm2iuYH4lD9Bi2DoaaYoevh9fJI16VT" target="_blank" class="btn-white">View →</a>
+    <a href="https://drive.google.com/drive/folders/19Mm2iuYH4lD9Bi2DoaaYoevh9fJI16VT" target="_blank" rel="noopener" class="btn-white">View &rarr;</a>
   </div>
-<div class="media-banner" style="margin-top:1.5rem; background : linear-gradient(135deg, #6b4fa0 0%, #4a3070 100%);">
+
+  <div class="media-banner" style="margin-top:1.5rem; background: linear-gradient(135deg, #6b4fa0 0%, #4a3070 100%);">
     <div>
       <h2>Newsletter</h2>
       <p>Business insights from SBI's student consultants, straight to your inbox.</p>
     </div>
-    <a href="https://sbiinsider.substack.com" target="_blank" class="btn-white">Subscribe →</a>
+    <a href="https://sbiinsider.substack.com" target="_blank" rel="noopener" class="btn-white">Subscribe &rarr;</a>
   </div>
 </section>
 
 <!-- RECOGNITION -->
 <section id="recognition">
-  <p class="section-label">Press & Testimonials</p>
+  <p class="section-label">Press &amp; Testimonials</p>
   <h2 class="section-title">Recognition</h2>
   <div class="divider"></div>
 
@@ -904,81 +980,66 @@ organization, serving Montgomery, the Greater Princeton Area, and beyond. SBI wa
 
   <div class="connect-grid">
     <div>
-      <p style="color:var(--mid); margin-bottom:1.75rem; font-size:0.95rem; line-height:1.7;">Join us in our mission! If you're interested in applying as a consultant, click Join SBI. If you are a business owner interested in exploring a potential partnership with SBI, contact us at <strong>officialmontgomerysbi@gmail.com</p>
-      <a href="https://classroom.google.com/c/NzYyNDYzNzYwNzg1?cjc=cjdguldd" target="_blank" class="btn-primary" style="display:inline-block; margin-bottom:2rem;">Join SBI →</a>
+      <p style="color:var(--mid); margin-bottom:1.75rem; font-size:0.95rem; line-height:1.7;">Join us in our mission. If you're interested in applying as a consultant, click Join SBI. If you are a business owner interested in exploring a potential partnership with SBI, contact us at <a class="contact-email" href="mailto:officialmontgomerysbi@gmail.com">officialmontgomerysbi@gmail.com</a>.</p>
+      <a href="https://classroom.google.com/c/NzYyNDYzNzYwNzg1?cjc=cjdguldd" target="_blank" rel="noopener" class="btn-primary" style="display:inline-block; margin-bottom:2rem;">Join SBI &rarr;</a>
       <div class="social-links">
-        <a href="https://www.facebook.com/share/17w1xd8ZUH/?mibextid=wwXIfr" target="_blank" class="social-link">
-  <span class="social-icon"><i class="fab fa-facebook-f"></i></span> Facebook
-</a>
-<a href="https://www.instagram.com/montysbi/" target="_blank" class="social-link">
-  <span class="social-icon"><i class="fab fa-instagram"></i></span> Instagram
-</a>
-<a href="https://www.linkedin.com/company/108037028/" target="_blank" class="social-link">
-  <span class="social-icon"><i class="fab fa-linkedin-in"></i></span> LinkedIn
-</a>
-<a href="https://www.youtube.com/@MontySBI" target="_blank" class="social-link">
-  <span class="social-icon"><i class="fab fa-youtube"></i></span> YouTube
-</a>
-
+        <a href="https://www.facebook.com/share/17w1xd8ZUH/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link">
+          <span class="social-icon"><i class="fab fa-facebook-f" aria-hidden="true"></i></span> Facebook
+        </a>
+        <a href="https://www.instagram.com/montysbi/" target="_blank" rel="noopener" class="social-link">
+          <span class="social-icon"><i class="fab fa-instagram" aria-hidden="true"></i></span> Instagram
+        </a>
+        <a href="https://www.linkedin.com/company/108037028/" target="_blank" rel="noopener" class="social-link">
+          <span class="social-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span> LinkedIn
+        </a>
+        <a href="https://www.youtube.com/@MontySBI" target="_blank" rel="noopener" class="social-link">
+          <span class="social-icon"><i class="fab fa-youtube" aria-hidden="true"></i></span> YouTube
+        </a>
       </div>
     </div>
-    <!-- <div>
-      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:1.5rem; color:var(--dark);">Send Us a Message</h3>
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" placeholder="Your name"/>
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="your@email.com"/>
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea placeholder="Tell us about your business or how you'd like to get involved…"></textarea>
-      </div>
-      <button class="btn-submit">Send Message</button>
-    </div> -->
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-brand">Montgomery SBI</span>
-<a href="https://mail.google.com/mail/?view=cm&to=montgomerysbi@gmail.com" target="_blank" style="color:rgba(255,255,255,0.6); font-size:1rem; text-decoration:none; display:flex; align-items:center; gap:8px;">
-  <i class="fas fa-envelope"></i> montgomerysbi@gmail.com
-</a>
-  <span>© 2026 Montgomery Small Business Initiative · Montgomery, NJ</span>
+  <span class="footer-brand">Montgomery Small Business Initiative</span>
+  <a href="mailto:officialmontgomerysbi@gmail.com" class="footer-email">
+    <i class="fas fa-envelope" aria-hidden="true"></i> officialmontgomerysbi@gmail.com
+  </a>
+  <span>&copy; 2026 Montgomery Small Business Initiative &middot; Montgomery, NJ</span>
 </footer>
 
 <script>
-  let clickCount = 0;
-  let clickTimer;
+  (function () {
+    var trigger = document.querySelector('a[href="#partners"]');
+    var img = document.getElementById('easter-egg-img');
+    if (!trigger || !img) return;
 
-  document.querySelector('a[href="#partners"]').addEventListener('click', function() {
-    clickCount++;
-    clearTimeout(clickTimer);
+    var clickCount = 0;
+    var clickTimer;
+    var hideTimer;
 
-    if (clickCount === 4) {
-      clickCount = 0;
-      const audio = new Audio('audio3.mp3');
-      audio.play();
+    trigger.addEventListener('click', function () {
+      clickCount++;
+      clearTimeout(clickTimer);
 
-      const img = document.getElementById('easter-egg-img');
-      img.style.display = 'block';
-      setTimeout(() => { img.style.display = 'none'; }, 17500);
-    }
+      if (clickCount === 4) {
+        clickCount = 0;
+        try {
+          var audio = new Audio('audio3.mp3');
+          var p = audio.play();
+          if (p && p.catch) { p.catch(function () {}); }
+        } catch (e) { /* audio file missing or blocked, ignore */ }
 
-    clickTimer = setTimeout(() => {
-      clickCount = 0;
-    }, 1500);
-  });
+        img.style.display = 'block';
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(function () { img.style.display = 'none'; }, 17500);
+      }
+
+      clickTimer = setTimeout(function () { clickCount = 0; }, 1500);
+    });
+  })();
 </script>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">Montgomery Small Business Initiative</div>
-  <span>&copy; 2026 Montgomery SBI. All rights reserved.</span>
-</footer>
 
 </body>
 </html>
