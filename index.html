@@ -895,8 +895,6 @@
 <section id="partners">
   <p class="section-label">Our Network</p>
   <h2 class="section-title">Partners &amp; Clients</h2>
-  <img id="easter-egg-img" src="easteregg.jpg" alt="" style="display:none; width:300px; border-radius:10px; margin-bottom:2rem;"/>
-
   <div class="divider"></div>
 
   <div class="partners-grid">
@@ -1008,38 +1006,6 @@
   </a>
   <span>&copy; 2026 Montgomery Small Business Initiative &middot; Montgomery, NJ</span>
 </footer>
-
-<script>
-  (function () {
-    var trigger = document.querySelector('a[href="#partners"]');
-    var img = document.getElementById('easter-egg-img');
-    if (!trigger || !img) return;
-
-    var clickCount = 0;
-    var clickTimer;
-    var hideTimer;
-
-    trigger.addEventListener('click', function () {
-      clickCount++;
-      clearTimeout(clickTimer);
-
-      if (clickCount === 4) {
-        clickCount = 0;
-        try {
-          var audio = new Audio('audio3.mp3');
-          var p = audio.play();
-          if (p && p.catch) { p.catch(function () {}); }
-        } catch (e) { /* audio file missing or blocked, ignore */ }
-
-        img.style.display = 'block';
-        clearTimeout(hideTimer);
-        hideTimer = setTimeout(function () { img.style.display = 'none'; }, 17500);
-      }
-
-      clickTimer = setTimeout(function () { clickCount = 0; }, 1500);
-    });
-  })();
-</script>
 
 </body>
 </html>
