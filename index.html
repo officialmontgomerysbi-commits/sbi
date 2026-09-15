@@ -43,13 +43,21 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "NGO"],
         "@id": "https://montgomerysbi.com/#organization",
         "name": "Montgomery Small Business Initiative",
         "alternateName": ["Monty SBI", "Montgomery SBI", "MontySBI", "SBI"],
         "description": "A nonprofit, student-run consulting and internship organization serving Montgomery, the Greater Princeton Area, and beyond.",
         "url": "https://montgomerysbi.com/",
         "email": "officialmontgomerysbi@gmail.com",
+        "slogan": "Pairing motivated students with local businesses for real-world impact.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "General inquiries and business partnerships",
+          "email": "officialmontgomerysbi@gmail.com",
+          "areaServed": "US",
+          "availableLanguage": "English"
+        },
         "logo": {
           "@type": "ImageObject",
           "@id": "https://montgomerysbi.com/#logo",
@@ -59,11 +67,13 @@
         "image": { "@id": "https://montgomerysbi.com/#logo" },
         "sameAs": [
           "https://www.instagram.com/montysbi/",
-          "https://www.linkedin.com/company/108037028/",
+          "https://www.linkedin.com/company/montgomery-small-business-initiative/",
           "https://www.facebook.com/share/17w1xd8ZUH/",
           "https://www.youtube.com/@MontySBI",
-          "https://sbiinsider.substack.com"
+          "https://sbiinsider.substack.com",
+          "https://maps.google.com/?cid=1382313293750353088"
         ],
+        "hasMap": "https://maps.google.com/?cid=1382313293750353088",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Montgomery",
@@ -113,6 +123,74 @@
         "about": { "@id": "https://montgomerysbi.com/#organization" },
         "primaryImageOfPage": { "@id": "https://montgomerysbi.com/#logo" },
         "inLanguage": "en-US"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://montgomerysbi.com/#faq",
+        "isPartOf": {
+          "@id": "https://montgomerysbi.com/#website"
+        },
+        "about": {
+          "@id": "https://montgomerysbi.com/#organization"
+        },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the Montgomery Small Business Initiative?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Montgomery Small Business Initiative, also known as Monty SBI, is a nonprofit, student-run consulting and internship organization based in Montgomery, New Jersey. We pair motivated high school students with local businesses so students get real operating experience and owners get high-quality support."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Montgomery SBI free for businesses?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Consulting engagements through SBI are free. We are a nonprofit and our goal is that students get real-world business experience while local businesses get meaningful help at no cost."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What kind of work do SBI consultants do?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our consultants work on strategy, sales, financial analysis, marketing, social media content, and operations. Every engagement starts by identifying one target area of the business to improve, then matching a handpicked consultant to it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can a local business partner with Montgomery SBI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Email officialmontgomerysbi@gmail.com with what you would like a student consultant to work on and roughly how many hours a week you have in mind. We match you with a consultant from our roster and follow up to get the engagement started."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do students join Montgomery SBI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Students apply through our Google Classroom using the Join SBI link on this site. We review applicants and match them with a partner business based on interest and skill set."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where does Montgomery SBI operate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We serve Montgomery Township, Skillman, Belle Mead, Princeton, and the surrounding Greater Princeton area of New Jersey."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I follow Montgomery SBI online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can follow the Montgomery Small Business Initiative on Instagram at @montysbi, on YouTube at @MontySBI, on LinkedIn and Facebook under Montgomery Small Business Initiative, and read our newsletter, SBI Insider, on Substack. You can also find us on Google Maps and leave a review there."
+            }
+          }
+        ]
       },
       {
         "@type": "ImageObject",
@@ -598,7 +676,7 @@
     .connect-grid {
       display: grid; grid-template-columns: 1fr; gap: 5rem; align-items: start;
     }
-    .social-links { display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; margin-bottom: 2rem; }
+    .social-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-bottom: 2rem; }
     .social-link {
       display: flex; align-items: center; gap: 12px;
       padding: 18px 18px;
@@ -609,7 +687,6 @@
       font-weight: 500;
       font-size: 1rem;
       transition: all 0.2s;
-      flex: 1 1 200px;
     }
     .social-link:hover { border-color: var(--green); color: var(--green); }
     .social-icon {
@@ -702,6 +779,27 @@
       .nav-links a { display: block; padding: 14px 0; }
     }
 
+    /* ── FAQ ── */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem 2.5rem;
+      margin-top: 2.5rem;
+    }
+    .faq-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.6rem;
+      line-height: 1.35;
+    }
+    .faq-item p {
+      font-size: 0.92rem;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { transition: none !important; animation: none !important; }
@@ -725,6 +823,7 @@
     <li><a href="#partners">Partners</a></li>
     <li><a href="#media">Media</a></li>
     <li><a href="#recognition">Recognition</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#connect">Connect</a></li>
   </ul>
 </nav>
@@ -744,6 +843,7 @@
   <img src="SBI Logo-2.png"
        alt="Official logo of the Montgomery Small Business Initiative student-run consulting nonprofit in Montgomery NJ"
        class="hero-logo"
+       width="1200" height="1200"
        fetchpriority="high"
        decoding="async"/>
 </section>
@@ -801,7 +901,7 @@
 
     <!-- President -->
     <div class="board-card">
-      <img src="SAM_1028.jpeg" class="board-photo" loading="lazy" decoding="async"
+      <img src="SAM_1028.jpeg" class="board-photo" width="1200" height="900" loading="lazy" decoding="async"
            alt="Dilan Mehta, President of the Montgomery Small Business Initiative in Montgomery NJ"/>
       <div class="board-info">
         <h3>Dilan Mehta</h3>
@@ -811,7 +911,7 @@
 
     <!-- VP 1 -->
     <div class="board-card">
-      <img src="SAM_1030.jpeg" class="board-photo" loading="lazy" decoding="async"
+      <img src="SAM_1030.jpeg" class="board-photo" width="1200" height="900" loading="lazy" decoding="async"
            alt="Suchir Parikh, Vice President of the Montgomery Small Business Initiative student consulting organization"/>
       <div class="board-info">
         <h3>Suchir Parikh</h3>
@@ -821,7 +921,7 @@
 
     <!-- VP 2 -->
     <div class="board-card">
-      <img src="SAM_1033.jpeg" class="board-photo" loading="lazy" decoding="async"
+      <img src="SAM_1033.jpeg" class="board-photo" width="1200" height="900" loading="lazy" decoding="async"
            alt="Danel Rodriguez, Vice President of the Montgomery Small Business Initiative student consulting network"/>
       <div class="board-info">
         <h3>Danel Rodriguez</h3>
@@ -831,7 +931,7 @@
 
     <!-- Head of Admin -->
     <div class="board-card">
-      <img src="SAM_1023.jpeg" class="board-photo" loading="lazy" decoding="async"
+      <img src="SAM_1023.jpeg" class="board-photo" width="1200" height="900" loading="lazy" decoding="async"
            alt="Ryan Patel, Head of Administration at the Montgomery Small Business Initiative in Skillman New Jersey"/>
       <div class="board-info">
         <h3>Ryan Patel</h3>
@@ -841,7 +941,7 @@
 
     <!-- Director of Recruitment -->
     <div class="board-card">
-      <img src="SAM_1037.jpeg" class="board-photo" loading="lazy" decoding="async"
+      <img src="SAM_1037.jpeg" class="board-photo" width="1200" height="900" loading="lazy" decoding="async"
            alt="Rey Sen, Director of Recruitment and Training for the Montgomery Small Business Initiative student consulting organization"/>
       <div class="board-info">
         <h3>Rey Sen</h3>
@@ -851,7 +951,7 @@
 
     <!-- Director External Affairs -->
     <div class="board-card">
-      <img src="IMG_6339.jpeg" class="board-photo" loading="lazy" decoding="async"
+      <img src="IMG_6339.jpeg" class="board-photo" width="972" height="874" loading="lazy" decoding="async"
            alt="Yuvi Ahlawat, Director of External Affairs at the Montgomery Small Business Initiative"/>
       <div class="board-info">
         <h3>Yuvi Ahlawat</h3>
@@ -970,6 +1070,44 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <p class="section-label">Common Questions</p>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="divider"></div>
+
+  <div class="faq-grid">
+    <div class="faq-item">
+      <h3>What is the Montgomery Small Business Initiative?</h3>
+      <p>The Montgomery Small Business Initiative, also known as Monty SBI, is a nonprofit, student-run consulting and internship organization based in Montgomery, New Jersey. We pair motivated high school students with local businesses so students get real operating experience and owners get high-quality support.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is Montgomery SBI free for businesses?</h3>
+      <p>Yes. Consulting engagements through SBI are free. We are a nonprofit and our goal is that students get real-world business experience while local businesses get meaningful help at no cost.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What kind of work do SBI consultants do?</h3>
+      <p>Our consultants work on strategy, sales, financial analysis, marketing, social media content, and operations. Every engagement starts by identifying one target area of the business to improve, then matching a handpicked consultant to it.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How can a local business partner with Montgomery SBI?</h3>
+      <p>Email officialmontgomerysbi@gmail.com with what you would like a student consultant to work on and roughly how many hours a week you have in mind. We match you with a consultant from our roster and follow up to get the engagement started.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do students join Montgomery SBI?</h3>
+      <p>Students apply through our Google Classroom using the Join SBI link on this site. We review applicants and match them with a partner business based on interest and skill set.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Where does Montgomery SBI operate?</h3>
+      <p>We serve Montgomery Township, Skillman, Belle Mead, Princeton, and the surrounding Greater Princeton area of New Jersey.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Where can I follow Montgomery SBI online?</h3>
+      <p>You can follow the Montgomery Small Business Initiative on Instagram at @montysbi, on YouTube at @MontySBI, on LinkedIn and Facebook under Montgomery Small Business Initiative, and read our newsletter, SBI Insider, on Substack. You can also find us on Google Maps and leave a review there.</p>
+    </div>
+  </div>
+</section>
+
 <!-- CONNECT -->
 <section id="connect">
   <p class="section-label">Get Involved</p>
@@ -981,17 +1119,35 @@
       <p style="color:var(--mid); margin-bottom:1.75rem; font-size:0.95rem; line-height:1.7;">Join us in our mission. If you're interested in applying as a consultant, click Join SBI. If you are a business owner interested in exploring a potential partnership with SBI, contact us at <a class="contact-email" href="mailto:officialmontgomerysbi@gmail.com">officialmontgomerysbi@gmail.com</a>.</p>
       <a href="https://classroom.google.com/c/NzYyNDYzNzYwNzg1?cjc=cjdguldd" target="_blank" rel="noopener" class="btn-primary" style="display:inline-block; margin-bottom:2rem;">Join SBI &rarr;</a>
       <div class="social-links">
-        <a href="https://www.facebook.com/share/17w1xd8ZUH/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link">
+        <a href="https://www.facebook.com/share/17w1xd8ZUH/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-link"
+           title="Montgomery Small Business Initiative on Facebook"
+           aria-label="Montgomery Small Business Initiative on Facebook">
           <span class="social-icon"><i class="fab fa-facebook-f" aria-hidden="true"></i></span> Facebook
         </a>
-        <a href="https://www.instagram.com/montysbi/" target="_blank" rel="noopener" class="social-link">
+        <a href="https://www.instagram.com/montysbi/" target="_blank" rel="noopener" class="social-link"
+           title="Montgomery Small Business Initiative on Instagram"
+           aria-label="Montgomery Small Business Initiative on Instagram">
           <span class="social-icon"><i class="fab fa-instagram" aria-hidden="true"></i></span> Instagram
         </a>
-        <a href="https://www.linkedin.com/company/108037028/" target="_blank" rel="noopener" class="social-link">
+        <a href="https://www.linkedin.com/company/montgomery-small-business-initiative/" target="_blank" rel="noopener" class="social-link"
+           title="Montgomery Small Business Initiative on LinkedIn"
+           aria-label="Montgomery Small Business Initiative on LinkedIn">
           <span class="social-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span> LinkedIn
         </a>
-        <a href="https://www.youtube.com/@MontySBI" target="_blank" rel="noopener" class="social-link">
+        <a href="https://www.youtube.com/@MontySBI" target="_blank" rel="noopener" class="social-link"
+           title="Montgomery Small Business Initiative on YouTube"
+           aria-label="Montgomery Small Business Initiative on YouTube">
           <span class="social-icon"><i class="fab fa-youtube" aria-hidden="true"></i></span> YouTube
+        </a>
+        <a href="https://maps.google.com/?cid=1382313293750353088" target="_blank" rel="noopener" class="social-link"
+           title="Montgomery Small Business Initiative on Google"
+           aria-label="Montgomery Small Business Initiative on Google">
+          <span class="social-icon"><i class="fab fa-google" aria-hidden="true"></i></span> Google
+        </a>
+        <a href="https://sbiinsider.substack.com" target="_blank" rel="noopener" class="social-link"
+           title="SBI Insider, the Montgomery Small Business Initiative newsletter on Substack"
+           aria-label="SBI Insider, the Montgomery Small Business Initiative newsletter on Substack">
+          <span class="social-icon"><i class="fas fa-newspaper" aria-hidden="true"></i></span> Substack
         </a>
       </div>
     </div>
