@@ -1,0 +1,36 @@
+{
+  "source": "Manual snapshot of the Google Business Profile on 2026-10-02. Two long reviews were cut off by Google Maps and dates are approximate. Replaced automatically with full text and exact dates once GOOGLE_PLACES_API_KEY is set (see REVIEWS.md).",
+  "placeId": "ChIJEcT_FXeGswoRwDxK6p32LhM",
+  "fetchedAt": "2026-10-02T21:15:00Z",
+  "rating": 5,
+  "userRatingCount": 3,
+  "reviews": [
+    {
+      "author": "Bill D'Arienzo",
+      "authorUri": null,
+      "photoUri": null,
+      "rating": 5,
+      "text": "As the owner of a small strategic brand marketing firm in Montgomery, NJ, I was delighted when the Montgomery Small Business Initiative, a student organization formed and led by Montgomery HS students, asked me to speak on fashion business …",
+      "publishTime": "2026-09-26T00:00:00Z",
+      "reviewUri": null
+    },
+    {
+      "author": "Deepa Rao",
+      "authorUri": null,
+      "photoUri": null,
+      "rating": 5,
+      "text": "The SBI consultants visited my dental practice as part of the Montgomery Small Business Initiative. They carefully analyzed monthly financial reports, compared each expense as a percentage of revenue with dental industry benchmarks, and …",
+      "publishTime": "2026-09-18T00:00:00Z",
+      "reviewUri": null
+    },
+    {
+      "author": "Mark Manto",
+      "authorUri": null,
+      "photoUri": null,
+      "rating": 5,
+      "text": "All the Students I worked with were professional, prepared and provided great insight  - comments - recommendations regarding  my Music project. A bright and exciting Future for this team and special thanks to Dilan and Neel.",
+      "publishTime": "2026-09-02T00:00:00Z",
+      "reviewUri": null
+    }
+  ]
+}

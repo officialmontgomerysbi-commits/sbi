@@ -51,6 +51,24 @@
         "url": "https://montgomerysbi.com/",
         "email": "officialmontgomerysbi@gmail.com",
         "slogan": "Pairing motivated students with local businesses for real-world impact.",
+        "subjectOf": [
+          {
+            "@type": "NewsArticle",
+            "headline": "Student-Run Montgomery Small Business Initiative Connects Young Consultants With Local Businesses",
+            "url": "https://headlinenewsmontgomery.com/student-run-montgomery-small-business-initiative-connects-young-consultants-with-local-businesses/",
+            "datePublished": "2026-09-14",
+            "author": { "@type": "Person", "name": "Nicholas Mistretta" },
+            "publisher": { "@type": "Organization", "name": "Headline News Montgomery" }
+          },
+          {
+            "@type": "NewsArticle",
+            "headline": "MHS Students Bring Free, Real-World Consulting to Montgomery\u2019s Small Businesses",
+            "url": "https://www.themontynews.org/single-post/mhs-students-bring-free-real-world-consulting-to-montgomery-s-small-businesses",
+            "datePublished": "2026-08-26",
+            "author": { "@type": "Person", "name": "Neel Deodhar" },
+            "publisher": { "@type": "Organization", "name": "The Montgomery News" }
+          }
+        ],
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "General inquiries and business partnerships",
@@ -676,6 +694,203 @@
       margin-top: auto;
     }
 
+    /* Testimonials: Google reviews, written into the HTML by scripts/sync-reviews.mjs, flipped by testimonials.js */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    .g-stars {
+      --pct: 100%;
+      display: inline-block;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      background: linear-gradient(90deg, #f4b400 var(--pct), #dedad3 var(--pct));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .g-summary {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin: -0.35rem 0 1.4rem;
+      text-decoration: none;
+      color: var(--mid);
+      font-size: 0.85rem;
+      width: fit-content;
+    }
+    .g-summary .g-score { font-weight: 700; color: var(--dark); font-size: 0.95rem; }
+    .g-summary .g-stars { font-size: 0.95rem; }
+    .g-summary:hover .g-count { color: var(--green); text-decoration: underline; }
+    .review-deck { display: flex; flex-direction: column; gap: 12px; }
+    .review-card {
+      margin: 0;
+      background: #fff;
+      border: 1px solid #ece8e1;
+      border-radius: 10px;
+      padding: 1.5rem 1.6rem 1.35rem;
+      box-shadow: 0 6px 22px rgba(26, 26, 26, 0.06);
+      display: flex; flex-direction: column; gap: 0.85rem;
+      position: relative;
+    }
+    .review-card::before {
+      content: '\201C';
+      position: absolute; top: 0.35rem; right: 1.2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 4.2rem; line-height: 1;
+      color: var(--green-pale);
+      pointer-events: none;
+    }
+    .review-stars { font-size: 0.9rem; }
+    .review-text { margin: 0; }
+    .review-text p {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--dark);
+      position: relative;
+    }
+    .review-more {
+      align-self: flex-start;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--green);
+      text-decoration: none;
+      margin-top: -0.35rem;
+    }
+    .review-more:hover { text-decoration: underline; }
+    .review-author { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+    .review-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      flex-shrink: 0; object-fit: cover;
+      background: var(--green-pale); color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
+    }
+    .review-who { display: flex; flex-direction: column; line-height: 1.3; }
+    .review-name { font-weight: 600; font-size: 0.9rem; color: var(--dark); text-decoration: none; }
+    a.review-name:hover { color: var(--green); }
+    .review-date { font-size: 0.78rem; color: var(--light); }
+    .review-empty p { font-size: 0.95rem; color: var(--mid); line-height: 1.7; }
+
+    /* Enhanced deck: cards stack on one grid cell, the next two peek out underneath */
+    .review-deck.is-enhanced {
+      display: grid;
+      padding-bottom: 22px;
+      touch-action: pan-y;
+      user-select: none; -webkit-user-select: none;
+    }
+    .review-deck.is-enhanced .review-card {
+      grid-area: 1 / 1;
+      transform-origin: 50% 100%;
+      transition: transform 0.52s cubic-bezier(0.22, 0.8, 0.24, 1), opacity 0.52s ease, box-shadow 0.52s ease;
+    }
+    .review-deck.is-enhanced .review-card[data-pos="0"] { z-index: 4; }
+    .review-deck.is-enhanced .review-card[data-pos="1"] {
+      z-index: 3; transform: translateY(11px) scale(0.955); opacity: 0.85; cursor: pointer;
+      box-shadow: 0 2px 10px rgba(26, 26, 26, 0.04);
+    }
+    .review-deck.is-enhanced .review-card[data-pos="2"] {
+      z-index: 2; transform: translateY(22px) scale(0.91); opacity: 0.55; cursor: pointer;
+      box-shadow: none;
+    }
+    .review-deck.is-enhanced .review-card[data-pos="hidden"] {
+      z-index: 1; transform: translateY(22px) scale(0.91); opacity: 0; pointer-events: none;
+    }
+    .review-deck.is-enhanced .review-card[data-pos="out"] {
+      z-index: 5; transform: translate(-48%, -6px) rotate(-7deg); opacity: 0; pointer-events: none;
+      transition: transform 0.52s cubic-bezier(0.22, 0.8, 0.24, 1), opacity 0.26s ease;
+    }
+    .testimonials-block { overflow: hidden; }
+    .review-deck.is-enhanced .review-card:not([data-pos="0"]) > * { visibility: hidden; }
+    .review-deck.is-enhanced .review-card[data-pos="out"] > * { visibility: visible; }
+    .review-deck.is-enhanced .review-card.no-anim { transition: none; }
+    .review-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.75rem 1rem;
+      margin-top: 1.1rem;
+    }
+    .review-controls { display: flex; align-items: center; gap: 10px; }
+    .review-arrow {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid #e2ddd5; background: #fff; color: var(--dark);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .review-arrow:hover { border-color: var(--green); color: var(--green); }
+    .review-arrow:active { transform: scale(0.94); }
+    .review-dots { display: flex; align-items: center; gap: 6px; }
+    .review-dot {
+      width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px;
+      background: #dedad3; cursor: pointer;
+      transition: width 0.3s ease, background 0.3s ease;
+    }
+    .review-dot[aria-current="true"] { width: 22px; background: var(--green); }
+    .review-arrow:focus-visible, .review-dot:focus-visible, .review-cta:focus-visible, .press-card:focus-visible {
+      outline: 2px solid var(--green); outline-offset: 3px;
+    }
+    .review-cta {
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em;
+      color: var(--green); text-decoration: none;
+      margin-left: auto;
+    }
+    .review-cta:hover { text-decoration: underline; }
+
+    /* Featured In: press cards */
+    .press-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    .featured-block .press-list { flex: 1; }
+    .press-card {
+      display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
+      background: #fff;
+      border: 1px solid #ece8e1;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .press-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(26, 26, 26, 0.08); border-color: var(--green-light); }
+    .press-thumb {
+      position: relative; display: block;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+    }
+    .press-thumb img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: 50% 30%;
+      display: block;
+      color: transparent; font-size: 0; /* hide alt text if a news site image ever breaks */
+      transition: transform 0.5s ease;
+    }
+    .press-card:hover .press-thumb img { transform: scale(1.04); }
+    .press-fallback {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem; text-align: center;
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.15rem;
+      color: #fff;
+    }
+    .press-body { display: flex; flex-direction: column; gap: 0.45rem; padding: 1rem 1.1rem 1.1rem; flex: 1; }
+    .press-outlet {
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--green);
+    }
+    .press-title {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: 1rem; line-height: 1.35; color: var(--dark);
+    }
+    .press-meta {
+      margin-top: auto; padding-top: 0.35rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+      font-size: 0.78rem; color: var(--light);
+    }
+    .press-read { color: var(--green); font-weight: 600; white-space: nowrap; }
+    @media (max-width: 640px) {
+      .recognition-block { padding: 1.6rem; }
+      .press-list { grid-template-columns: 1fr; }
+      .review-card { padding: 1.3rem 1.25rem 1.2rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .review-deck.is-enhanced .review-card, .press-card, .press-thumb img, .review-dot { transition: none; }
+    }
+
     /* ── CONNECT ── */
     #connect { background: #fff; }
     .connect-grid {
@@ -1074,15 +1289,73 @@
   <div class="divider"></div>
 
   <div class="recognition-grid">
-    <div class="recognition-block">
+    <div class="recognition-block testimonials-block">
       <h3>Testimonials</h3>
-      <p style="font-size:0.9rem; color:var(--mid); line-height:1.7;">Hear from the businesses and students who have experienced SBI's impact firsthand.</p>
-      <p class="coming-soon">Coming Soon</p>
+      <!-- reviews -->
+      <a class="g-summary" href="https://search.google.com/local/reviews?placeid=ChIJEcT_FXeGswoRwDxK6p32LhM" target="_blank" rel="noopener" aria-label="Rated 5.0 out of 5 from 3 Google reviews">
+        <span class="g-score">5.0</span>
+        <span class="g-stars" style="--pct:100%" aria-hidden="true">★★★★★</span>
+        <span class="g-count">3 Google reviews</span>
+      </a>
+      <div class="review-deck" data-review-deck aria-label="Google reviews of the Montgomery Small Business Initiative">
+        <figure class="review-card">
+          <span class="g-stars review-stars" style="--pct:100%" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
+          <blockquote class="review-text"><p>As the owner of a small strategic brand marketing firm in Montgomery, NJ, I was delighted when the Montgomery Small Business Initiative, a student organization formed and led by Montgomery HS students, asked me to speak on…</p></blockquote>
+          <a class="review-more" href="https://search.google.com/local/reviews?placeid=ChIJEcT_FXeGswoRwDxK6p32LhM" target="_blank" rel="noopener">Read the full review on Google</a>
+          <figcaption class="review-author">
+            <span class="review-avatar" aria-hidden="true">BD</span>
+            <span class="review-who"><span class="review-name">Bill D&#39;Arienzo</span><span class="review-date">September 2026</span></span>
+          </figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="g-stars review-stars" style="--pct:100%" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
+          <blockquote class="review-text"><p>The SBI consultants visited my dental practice as part of the Montgomery Small Business Initiative. They carefully analyzed monthly financial reports, compared each expense as a percentage of revenue with dental industry…</p></blockquote>
+          <a class="review-more" href="https://search.google.com/local/reviews?placeid=ChIJEcT_FXeGswoRwDxK6p32LhM" target="_blank" rel="noopener">Read the full review on Google</a>
+          <figcaption class="review-author">
+            <span class="review-avatar" aria-hidden="true">DR</span>
+            <span class="review-who"><span class="review-name">Deepa Rao</span><span class="review-date">September 2026</span></span>
+          </figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="g-stars review-stars" style="--pct:100%" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
+          <blockquote class="review-text"><p>All the Students I worked with were professional, prepared and provided great insight - comments - recommendations regarding my Music project. A bright and exciting Future for this team and special thanks to Dilan and Neel.</p></blockquote>
+          <figcaption class="review-author">
+            <span class="review-avatar" aria-hidden="true">MM</span>
+            <span class="review-who"><span class="review-name">Mark Manto</span><span class="review-date">September 2026</span></span>
+          </figcaption>
+        </figure>
+      </div>
+      <!-- /reviews -->
+      <div class="review-bar">
+        <a class="review-cta" href="https://search.google.com/local/writereview?placeid=ChIJEcT_FXeGswoRwDxK6p32LhM" target="_blank" rel="noopener">Leave us a review <span aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
-    <div class="recognition-block">
+    <div class="recognition-block featured-block">
       <h3>Featured In</h3>
-      <p style="font-size:0.9rem; color:var(--mid); line-height:1.7;">News coverage, articles, and press features highlighting SBI's work in the community.</p>
-      <p class="coming-soon">Coming Soon</p>
+      <div class="press-list">
+        <a class="press-card" href="https://headlinenewsmontgomery.com/student-run-montgomery-small-business-initiative-connects-young-consultants-with-local-businesses/" target="_blank" rel="noopener">
+          <span class="press-thumb">
+            <span class="press-fallback" aria-hidden="true">Headline News Montgomery</span>
+            <img src="https://headlinenewsmontgomery.com/wp-content/uploads/2026/09/Dilan_Mehta@2x.jpg" alt="Headline News Montgomery feature photo of SBI President Dilan Mehta" width="1556" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"/>
+          </span>
+          <span class="press-body">
+            <span class="press-outlet">Headline News Montgomery</span>
+            <span class="press-title">Student-Run Montgomery Small Business Initiative Connects Young Consultants With Local Businesses</span>
+            <span class="press-meta"><time datetime="2026-09-14">Sep 14, 2026</time><span class="press-read">Read article <span aria-hidden="true">&rarr;</span></span></span>
+          </span>
+        </a>
+        <a class="press-card" href="https://www.themontynews.org/single-post/mhs-students-bring-free-real-world-consulting-to-montgomery-s-small-businesses" target="_blank" rel="noopener">
+          <span class="press-thumb">
+            <span class="press-fallback" aria-hidden="true">The Montgomery News</span>
+            <img src="https://static.wixstatic.com/media/21c2b2_4a0d10a0ef704c53bd805e37e2303f15~mv2.png/v1/fill/w_800,h_450,al_c,q_85,enc_auto/21c2b2_4a0d10a0ef704c53bd805e37e2303f15~mv2.png" alt="The Montgomery News feature photo of the Montgomery SBI team" width="800" height="450" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"/>
+          </span>
+          <span class="press-body">
+            <span class="press-outlet">The Montgomery News</span>
+            <span class="press-title">MHS Students Bring Free, Real-World Consulting to Montgomery&rsquo;s Small Businesses</span>
+            <span class="press-meta"><time datetime="2026-08-26">Aug 26, 2026</time><span class="press-read">Read article <span aria-hidden="true">&rarr;</span></span></span>
+          </span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1182,6 +1455,8 @@
 
 <!-- Consultants + Client Businesses come from the SBI Website Roster Google Doc. See ROSTER.md -->
 <script src="/roster.js" defer></script>
+<!-- Testimonials carousel. Reviews are written into the HTML daily by scripts/sync-reviews.mjs. See REVIEWS.md -->
+<script src="/testimonials.js" defer></script>
 
 </body>
 </html>

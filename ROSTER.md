@@ -40,7 +40,7 @@ Automatic icon letters: first letter of the first two main words (skipping "the"
 
 - `roster.js` runs on page load, fetches the doc's plain-text export (`/export?format=txt`), parses the three headings, and swaps the lists in place. Typical load time is about 1 second.
 - The names already written in `index.html` (between `<!-- roster:... -->` markers) show instantly and stay up if Google is slow, down, or the doc is broken. Each visitor's browser also caches the last good roster.
-- `.github/workflows/sync-roster.yml` runs daily (and on demand from the GitHub Actions tab) to copy the doc's names into `index.html`, so Google search and the fallback never go stale. It only commits when something changed.
+- `.github/workflows/sync-roster.yml` ("Sync site data") runs daily (and on demand from the GitHub Actions tab) and calls `scripts/sync-site.mjs`, which copies the doc's names into `index.html` so Google search and the fallback never go stale. It only commits when something changed. The same job also syncs Google reviews (see REVIEWS.md).
 
 ## Files
 
@@ -48,8 +48,8 @@ Automatic icon letters: first letter of the first two main words (skipping "the"
 |---|---|
 | `roster.js` | Loader + parser. Runs in the browser and in Node. The doc ID is at the top. |
 | `scripts/sync-roster.mjs` | Updates the static names in `index.html` from the doc. `--check` exits 1 if out of date. |
-| `.github/workflows/sync-roster.yml` | Daily sync + manual "Run workflow" button |
-| `tests/roster.test.mjs` | 21 tests: parser rules, initials, escaping, static sync, end-to-end script runs |
+| `.github/workflows/sync-roster.yml` | Daily sync (roster + reviews) + manual "Run workflow" button |
+| `tests/roster.test.mjs`, `tests/reviews.test.mjs` | 33 tests: parser rules, initials, escaping, review rendering, static sync, end-to-end script runs |
 | `tests/fixtures-doc-export.txt` | A real export of the doc, used by the tests |
 
 ## Commands
