@@ -1,0 +1,44 @@
+name: Sync roster from Google Doc
+
+# The site reads the roster doc live on every page load. This job also copies
+# the names into index.html once a day so Google search results and the
+# offline fallback stay current. Run it by hand from the Actions tab any time.
+on:
+  schedule:
+    - cron: "17 10 * * *" # every day around 6am Eastern
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-roster
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run roster tests
+        run: node --test tests/*.test.mjs
+
+      - name: Pull names from the Google Doc into index.html
+        run: node scripts/sync-roster.mjs
+
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "Roster already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Sync roster from Google Doc"
+          git push
