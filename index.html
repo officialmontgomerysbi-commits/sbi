@@ -573,6 +573,11 @@
     .consultant-name.past { color: var(--light); }
     .consultant-name.past::before { background: var(--green-light); }
 
+    /* Roster lists are filled from the SBI Website Roster Google Doc (see roster.js / ROSTER.md) */
+    .roster-list { transition: opacity 0.18s ease; }
+    .roster-list.roster-swapping { opacity: 0; }
+    @media (prefers-reduced-motion: reduce) { .roster-list { transition: none; } }
+
     /* ── PARTNERS ── */
     #partners { background: var(--cream); }
     .partners-grid {
@@ -972,21 +977,29 @@
   <div class="consultant-lists">
     <div class="list-block">
       <h3>Current Consultants</h3>
-      <div class="consultant-name">Daniel Jing</div>
-      <div class="consultant-name">Ethan Fang</div>
-      <div class="consultant-name">Aroh Sakpal</div>
-      <div class="consultant-name">Myra Chopra</div>
-      <div class="consultant-name">Liyana Ansari</div>
-      <div class="consultant-name">Saanvi Lakhotiya</div>
-      <div class="consultant-name">Arjun Moorjani</div>
-      <div class="consultant-name">Rithik Chintala</div>
-      <div class="consultant-name">Tarosh Vatti</div>
+      <div class="roster-list" data-roster="current">
+      <!-- roster:current -->
+        <div class="consultant-name">Daniel Jing</div>
+        <div class="consultant-name">Ethan Fang</div>
+        <div class="consultant-name">Aroh Sakpal</div>
+        <div class="consultant-name">Myra Chopra</div>
+        <div class="consultant-name">Liyana Ansari</div>
+        <div class="consultant-name">Saanvi Lakhotiya</div>
+        <div class="consultant-name">Arjun Moorjani</div>
+        <div class="consultant-name">Rithik Chintala</div>
+        <div class="consultant-name">Tarosh Vatti</div>
+      <!-- /roster:current -->
+      </div>
     </div>
     <div class="list-block">
       <h3>Past Consultants</h3>
-      <div class="consultant-name past">Vihaan Vatsa</div>
-      <div class="consultant-name past">Siddarth Goyal</div>
-      <div class="consultant-name past">Janesh Sanjai</div>
+      <div class="roster-list" data-roster="past">
+      <!-- roster:past -->
+        <div class="consultant-name past">Vihaan Vatsa</div>
+        <div class="consultant-name past">Siddarth Goyal</div>
+        <div class="consultant-name past">Janesh Sanjai</div>
+      <!-- /roster:past -->
+      </div>
     </div>
   </div>
 </section>
@@ -1000,15 +1013,19 @@
   <div class="partners-grid">
     <div class="partner-group">
       <h3>Client Businesses</h3>
-      <div class="partner-item"><div class="partner-icon">CB</div>Code Ninjas Bridgewater</div>
-      <div class="partner-item"><div class="partner-icon">TG</div>TheeGroovement</div>
-      <div class="partner-item"><div class="partner-icon">ED</div>Expreseo Digital Marketing</div>
-      <div class="partner-item"><div class="partner-icon">WD</div>WDA Strategic Marketing</div>
-      <div class="partner-item"><div class="partner-icon">GC</div>Go To College</div>
-      <div class="partner-item"><div class="partner-icon">PR</div>Princeton Record Exchange</div>
-      <div class="partner-item"><div class="partner-icon">AW</div>All The Way Up HVAC</div>
-      <div class="partner-item"><div class="partner-icon">LH</div>Lana Health and Wellness</div>
-      <div class="partner-item"><div class="partner-icon">MD</div>Montgomery Dental Loft</div>
+      <div class="roster-list" data-roster="businesses">
+      <!-- roster:businesses -->
+        <div class="partner-item"><div class="partner-icon">CB</div>Code Ninjas Bridgewater</div>
+        <div class="partner-item"><div class="partner-icon">TG</div>TheeGroovement</div>
+        <div class="partner-item"><div class="partner-icon">ED</div>Expreseo Digital Marketing</div>
+        <div class="partner-item"><div class="partner-icon">WD</div>WDA Strategic Marketing</div>
+        <div class="partner-item"><div class="partner-icon">GC</div>Go To College</div>
+        <div class="partner-item"><div class="partner-icon">PR</div>Princeton Record Exchange</div>
+        <div class="partner-item"><div class="partner-icon">AW</div>All The Way Up HVAC</div>
+        <div class="partner-item"><div class="partner-icon">LH</div>Lana Health and Wellness</div>
+        <div class="partner-item"><div class="partner-icon">MD</div>Montgomery Dental Loft</div>
+      <!-- /roster:businesses -->
+      </div>
     </div>
     <div class="partner-group">
       <h3>Organizational Partners</h3>
@@ -1162,6 +1179,9 @@
   </a>
   <span>&copy; 2026 Montgomery Small Business Initiative &middot; Montgomery, NJ</span>
 </footer>
+
+<!-- Consultants + Client Businesses come from the SBI Website Roster Google Doc. See ROSTER.md -->
+<script src="/roster.js" defer></script>
 
 </body>
 </html>

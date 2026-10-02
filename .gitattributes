@@ -1,0 +1,2 @@
+# Keep the Google Doc export fixture byte-for-byte (the real export uses CRLF)
+tests/fixtures-doc-export.txt -text

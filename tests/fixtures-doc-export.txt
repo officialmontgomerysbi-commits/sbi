@@ -1,0 +1,27 @@
+SBI Website Roster
+The Consultants and Partners sections of montgomerysbi.com are built from this doc every time someone opens the site. Edit names here and the site updates on the next page load.
+Rules: put one name per line under the right heading. Keep the three headings exactly as they are (capitals do not matter). To move someone from current to past, cut their line and paste it under PAST CONSULTANTS. Order here is the order on the site.
+CURRENT CONSULTANTS
+Daniel Jing
+Ethan Fang
+Aroh Sakpal
+Myra Chopra
+Liyana Ansari
+Saanvi Lakhotiya
+Arjun Moorjani
+Rithik Chintala
+Tarosh Vatti
+PAST CONSULTANTS
+Vihaan Vatsa
+Siddarth Goyal
+Janesh Sanjai
+BUSINESSES
+Code Ninjas Bridgewater | CB
+TheeGroovement
+Expreseo Digital Marketing
+WDA Strategic Marketing
+Go To College
+Princeton Record Exchange
+All The Way Up HVAC
+Lana Health and Wellness
+Montgomery Dental Loft
