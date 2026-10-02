@@ -38,6 +38,7 @@ Automatic icon letters: first letter of the first two main words (skipping "the"
 
 ## How it works
 
+- On the site, each of the three lists is its own carousel showing 4 names at a time (arrows, dots, swipe). They page separately on purpose, so a consultant never looks tied to the business beside them. That is `list-carousel.js`, switched on by `data-carousel-size="4"` on each list.
 - `roster.js` runs on page load, fetches the doc's plain-text export (`/export?format=txt`), parses the three headings, and swaps the lists in place. Typical load time is about 1 second.
 - The names already written in `index.html` (between `<!-- roster:... -->` markers) show instantly and stay up if Google is slow, down, or the doc is broken. Each visitor's browser also caches the last good roster.
 - `.github/workflows/sync-roster.yml` ("Sync site data") runs daily (and on demand from the GitHub Actions tab) and calls `scripts/sync-site.mjs`, which copies the doc's names into `index.html` so Google search and the fallback never go stale. It only commits when something changed. The same job also syncs Google reviews (see REVIEWS.md).
@@ -47,9 +48,10 @@ Automatic icon letters: first letter of the first two main words (skipping "the"
 | File | Purpose |
 |---|---|
 | `roster.js` | Loader + parser. Runs in the browser and in Node. The doc ID is at the top. |
+| `list-carousel.js` | Shows each list 4 at a time and rebuilds the pages when names arrive from the doc |
 | `scripts/sync-roster.mjs` | Updates the static names in `index.html` from the doc. `--check` exits 1 if out of date. |
 | `.github/workflows/sync-roster.yml` | Daily sync (roster + reviews) + manual "Run workflow" button |
-| `tests/roster.test.mjs`, `tests/reviews.test.mjs` | 33 tests: parser rules, initials, escaping, review rendering, static sync, end-to-end script runs |
+| `tests/roster.test.mjs`, `tests/reviews.test.mjs` | 35 tests: parser rules, initials, escaping, review rendering, static sync, end-to-end script runs |
 | `tests/fixtures-doc-export.txt` | A real export of the doc, used by the tests |
 
 ## Commands

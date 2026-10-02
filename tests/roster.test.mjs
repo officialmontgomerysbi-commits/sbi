@@ -146,7 +146,7 @@ test('injectStatic handles an empty section and stays idempotent', async () => {
   const html = await readFile(path.join(root, 'index.html'), 'utf8');
   const data = R.parse('PAST CONSULTANTS\n');
   const once = R.injectStatic(html, data);
-  assert.match(once, /<!-- roster:past -->\n\s*<!-- \/roster:past -->/);
+  assert.match(once, /<!-- roster:past -->\r?\n\s*<!-- \/roster:past -->/);
   assert.equal(R.injectStatic(once, data), once);
 });
 
@@ -184,4 +184,19 @@ test('sync script refuses a doc with no headings', async () => {
   const env = { ...process.env, ROSTER_INDEX_FILE: tmpIndex, ROSTER_TEXT_FILE: tmpText };
   await assert.rejects(run(process.execPath, [path.join(root, 'scripts', 'sync-roster.mjs')], { env }));
   assert.equal(await readFile(tmpIndex, 'utf8'), await readFile(path.join(root, 'index.html'), 'utf8'));
+});
+
+test('each roster list is its own 4-per-page carousel', async () => {
+  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  for (const key of ['current', 'past', 'businesses']) {
+    assert.ok(html.includes(`data-roster="${key}" data-carousel-size="4"`), key);
+  }
+  assert.ok(html.includes('<script src="/list-carousel.js" defer></script>'));
+  assert.ok(html.includes('.roster-list > [hidden] { display: none !important; }'), 'hidden items stay hidden even with display:flex rows');
+});
+
+test('board photos keep their square crop and the FAQ is gone', async () => {
+  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  assert.match(html, /\.board-photo \{\s*width: 100%;\s*height: auto;/);
+  assert.ok(!/faq/i.test(html), 'no FAQ section, nav link, styles or FAQPage schema');
 });

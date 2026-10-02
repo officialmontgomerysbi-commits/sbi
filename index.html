@@ -143,74 +143,6 @@
         "inLanguage": "en-US"
       },
       {
-        "@type": "FAQPage",
-        "@id": "https://montgomerysbi.com/#faq",
-        "isPartOf": {
-          "@id": "https://montgomerysbi.com/#website"
-        },
-        "about": {
-          "@id": "https://montgomerysbi.com/#organization"
-        },
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is the Montgomery Small Business Initiative?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The Montgomery Small Business Initiative, also known as Monty SBI, is a nonprofit, student-run consulting and internship organization based in Montgomery, New Jersey. We pair motivated high school students with local businesses so students get real operating experience and owners get high-quality support."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Montgomery SBI free for businesses?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Consulting engagements through SBI are free. We are a nonprofit and our goal is that students get real-world business experience while local businesses get meaningful help at no cost."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What kind of work do SBI consultants do?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our consultants work on strategy, sales, financial analysis, marketing, social media content, and operations. Every engagement starts by identifying one target area of the business to improve, then matching a handpicked consultant to it."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How can a local business partner with Montgomery SBI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Email officialmontgomerysbi@gmail.com with what you would like a student consultant to work on and roughly how many hours a week you have in mind. We match you with a consultant from our roster and follow up to get the engagement started."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do students join Montgomery SBI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Students apply through our Google Classroom using the Join SBI link on this site. We review applicants and match them with a partner business based on interest and skill set."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where does Montgomery SBI operate?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We serve Montgomery Township, Skillman, Belle Mead, Princeton, and the surrounding Greater Princeton area of New Jersey."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where can I follow Montgomery SBI online?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You can follow the Montgomery Small Business Initiative on Instagram at @montysbi, on YouTube at @MontySBI, on LinkedIn and Facebook under Montgomery Small Business Initiative, and read our newsletter, SBI Insider, on Substack. You can also find us on Google Maps and leave a review there."
-            }
-          }
-        ]
-      },
-      {
         "@type": "ImageObject",
         "contentUrl": "https://montgomerysbi.com/SAM_1028.jpeg",
         "url": "https://montgomerysbi.com/SAM_1028.jpeg",
@@ -535,6 +467,7 @@
     }
     .board-photo {
       width: 100%;
+      height: auto; /* without this the height="900" attribute wins and the photos render 900px tall */
       aspect-ratio: 1 / 1;
       object-fit: cover;
       display: block;
@@ -595,6 +528,33 @@
     .roster-list { transition: opacity 0.18s ease; }
     .roster-list.roster-swapping { opacity: 0; }
     @media (prefers-reduced-motion: reduce) { .roster-list { transition: none; } }
+
+    /* List carousels (list-carousel.js): 4 names per page, each list pages on its own */
+    .roster-list > [hidden] { display: none !important; }
+    .roster-list.is-paged { touch-action: pan-y; transition: opacity 0.17s ease, transform 0.17s ease; }
+    .roster-list.pg-out-left { opacity: 0; transform: translateX(-18px); }
+    .roster-list.pg-out-right { opacity: 0; transform: translateX(18px); }
+    .roster-list.pg-in-left { transition: none; opacity: 0; transform: translateX(-18px); }
+    .roster-list.pg-in-right { transition: none; opacity: 0; transform: translateX(18px); }
+    .pager-bar { display: flex; align-items: center; gap: 10px; margin-top: 1rem; }
+    .pager-arrow {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1.5px solid #e2ddd5; background: #fff; color: var(--dark);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .pager-arrow:hover { border-color: var(--green); color: var(--green); }
+    .pager-arrow:active { transform: scale(0.94); }
+    .pager-dots { display: flex; align-items: center; gap: 6px; }
+    .pager-dot {
+      width: 7px; height: 7px; padding: 0; border: 0; border-radius: 999px;
+      background: #dedad3; cursor: pointer;
+      transition: width 0.3s ease, background 0.3s ease;
+    }
+    .pager-dot[aria-current="true"] { width: 18px; background: var(--green); }
+    .pager-arrow:focus-visible, .pager-dot:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { .roster-list.is-paged, .pager-dot { transition: none; } }
 
     /* ── PARTNERS ── */
     #partners { background: var(--cream); }
@@ -997,27 +957,6 @@
       .nav-links a { display: block; padding: 14px 0; }
     }
 
-    /* ── FAQ ── */
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.75rem 2.5rem;
-      margin-top: 2.5rem;
-    }
-    .faq-item h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.12rem;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 0.6rem;
-      line-height: 1.35;
-    }
-    .faq-item p {
-      font-size: 0.92rem;
-      color: var(--mid);
-      line-height: 1.75;
-    }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { transition: none !important; animation: none !important; }
@@ -1041,7 +980,6 @@
     <li><a href="#partners">Partners</a></li>
     <li><a href="#media">Media</a></li>
     <li><a href="#recognition">Recognition</a></li>
-    <li><a href="#faq">FAQ</a></li>
     <li><a href="#connect">Connect</a></li>
   </ul>
 </nav>
@@ -1190,7 +1128,7 @@
   <div class="consultant-lists">
     <div class="list-block">
       <h3>Current Consultants</h3>
-      <div class="roster-list" data-roster="current">
+      <div class="roster-list" data-roster="current" data-carousel-size="4">
       <!-- roster:current -->
         <div class="consultant-name">Daniel Jing</div>
         <div class="consultant-name">Ethan Fang</div>
@@ -1206,7 +1144,7 @@
     </div>
     <div class="list-block">
       <h3>Past Consultants</h3>
-      <div class="roster-list" data-roster="past">
+      <div class="roster-list" data-roster="past" data-carousel-size="4">
       <!-- roster:past -->
         <div class="consultant-name past">Vihaan Vatsa</div>
         <div class="consultant-name past">Siddarth Goyal</div>
@@ -1226,7 +1164,7 @@
   <div class="partners-grid">
     <div class="partner-group">
       <h3>Client Businesses</h3>
-      <div class="roster-list" data-roster="businesses">
+      <div class="roster-list" data-roster="businesses" data-carousel-size="4">
       <!-- roster:businesses -->
         <div class="partner-item"><div class="partner-icon">CB</div>Code Ninjas Bridgewater</div>
         <div class="partner-item"><div class="partner-icon">TG</div>TheeGroovement</div>
@@ -1358,44 +1296,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq">
-  <p class="section-label">Common Questions</p>
-  <h2 class="section-title">Frequently Asked Questions</h2>
-  <div class="divider"></div>
-
-  <div class="faq-grid">
-    <div class="faq-item">
-      <h3>What is the Montgomery Small Business Initiative?</h3>
-      <p>The Montgomery Small Business Initiative, also known as Monty SBI, is a nonprofit, student-run consulting and internship organization based in Montgomery, New Jersey. We pair motivated high school students with local businesses so students get real operating experience and owners get high-quality support.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Is Montgomery SBI free for businesses?</h3>
-      <p>Yes. Consulting engagements through SBI are free. We are a nonprofit and our goal is that students get real-world business experience while local businesses get meaningful help at no cost.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What kind of work do SBI consultants do?</h3>
-      <p>Our consultants work on strategy, sales, financial analysis, marketing, social media content, and operations. Every engagement starts by identifying one target area of the business to improve, then matching a handpicked consultant to it.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How can a local business partner with Montgomery SBI?</h3>
-      <p>Email officialmontgomerysbi@gmail.com with what you would like a student consultant to work on and roughly how many hours a week you have in mind. We match you with a consultant from our roster and follow up to get the engagement started.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How do students join Montgomery SBI?</h3>
-      <p>Students apply through our Google Classroom using the Join SBI link on this site. We review applicants and match them with a partner business based on interest and skill set.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Where does Montgomery SBI operate?</h3>
-      <p>We serve Montgomery Township, Skillman, Belle Mead, Princeton, and the surrounding Greater Princeton area of New Jersey.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Where can I follow Montgomery SBI online?</h3>
-      <p>You can follow the Montgomery Small Business Initiative on Instagram at @montysbi, on YouTube at @MontySBI, on LinkedIn and Facebook under Montgomery Small Business Initiative, and read our newsletter, SBI Insider, on Substack. You can also find us on Google Maps and leave a review there.</p>
-    </div>
-  </div>
-</section>
-
 <!-- CONNECT -->
 <section id="connect">
   <p class="section-label">Get Involved</p>
@@ -1455,6 +1355,8 @@
 <script src="/roster.js" defer></script>
 <!-- Testimonials carousel. Reviews are written into the HTML daily by scripts/sync-reviews.mjs. See REVIEWS.md -->
 <script src="/testimonials.js" defer></script>
+<!-- Consultant and business lists flip 4 at a time -->
+<script src="/list-carousel.js" defer></script>
 
 </body>
 </html>
