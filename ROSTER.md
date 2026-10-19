@@ -51,7 +51,7 @@ Automatic icon letters: first letter of the first two main words (skipping "the"
 | `list-carousel.js` | Shows each list 4 at a time and rebuilds the pages when names arrive from the doc |
 | `scripts/sync-roster.mjs` | Updates the static names in `index.html` from the doc. `--check` exits 1 if out of date. |
 | `.github/workflows/sync-roster.yml` | Daily sync (roster + reviews) + manual "Run workflow" button |
-| `tests/roster.test.mjs`, `tests/reviews.test.mjs` | 35 tests: parser rules, initials, escaping, review rendering, static sync, end-to-end script runs |
+| `tests/roster.test.mjs`, `tests/reviews.test.mjs` | 42 tests: parser rules, initials, escaping, review + testimonial rendering, static sync, end-to-end script runs. They never compare `index.html` to the saved doc export, because the page follows the live doc and the tests gate the daily sync |
 | `tests/fixtures-doc-export.txt` | A real export of the doc, used by the tests |
 
 ## Commands

@@ -1,0 +1,16 @@
+{
+  "_readme": "Hand-picked testimonials from outside Google (Facebook, LinkedIn, Instagram, email...). The daily Google sync never edits this file, so these always stay in the Testimonials deck. After editing, run: node scripts/sync-reviews.mjs. Full guide: REVIEWS.md.",
+  "testimonials": [
+    {
+      "author": "Shop Local Montgomery",
+      "role": "Montgomery Business Association",
+      "authorUrl": "https://www.facebook.com/shoplocalmontgomery",
+      "photo": "/img/testimonials/shop-local-montgomery.png",
+      "source": "facebook",
+      "url": "https://www.facebook.com/shoplocalmontgomery/posts/pfbid0PRfcPRcYQx24fg42MXz8eSNMCGhouz1me3B2ED5oVUzftkWgUG5TQKG7Cv6LFgakl",
+      "date": "2026-08-31",
+      "pinned": true,
+      "text": "Congratulations to the Montgomery Small Business Initiative!\nIt’s great to see Montgomery Township, NJ High School students using their talents and initiative to connect with and gain real-world experience in our local business community."
+    }
+  ]
+}

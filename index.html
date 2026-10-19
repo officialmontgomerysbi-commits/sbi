@@ -654,7 +654,7 @@
       margin-top: auto;
     }
 
-    /* Testimonials: Google reviews, written into the HTML by scripts/sync-reviews.mjs, flipped by testimonials.js */
+    /* Testimonials: Google reviews + hand-picked quotes (data/testimonials.json), written into the HTML by scripts/sync-reviews.mjs, flipped by testimonials.js */
     .sr-only {
       position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
       overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
@@ -734,6 +734,25 @@
     a.review-name:hover { color: var(--green); }
     .review-date { font-size: 0.78rem; color: var(--light); }
     .review-empty p { font-size: 0.95rem; color: var(--mid); line-height: 1.7; }
+    /* Hand-picked testimonial: a source line (e.g. Posted on Facebook) sits where Google's stars go */
+    .review-source {
+      display: inline-flex; align-items: center; gap: 7px;
+      align-self: flex-start;
+      min-height: 0.9rem;
+      font-size: 0.76rem; font-weight: 600; letter-spacing: 0.02em;
+      color: var(--mid); text-decoration: none; line-height: 1;
+    }
+    .review-source-icon { flex-shrink: 0; display: block; color: var(--green); }
+    a.review-source:hover { color: var(--green); }
+    a.review-source:hover span { text-decoration: underline; }
+    .review-text p + p { margin-top: 0.55rem; }
+    .review-when { white-space: nowrap; }
+    img.review-avatar--logo {
+      background: #fff;
+      border: 1px solid #ece8e1;
+      object-fit: contain;
+      padding: 5px;
+    }
 
     /* Enhanced deck: one review on screen, arrows flip to the next */
     .review-deck.is-enhanced {
@@ -780,7 +799,7 @@
       transition: width 0.3s ease, background 0.3s ease;
     }
     .review-dot[aria-current="true"] { width: 22px; background: var(--green); }
-    .review-arrow:focus-visible, .review-dot:focus-visible, .review-cta:focus-visible, .press-card:focus-visible {
+    .review-arrow:focus-visible, .review-dot:focus-visible, .review-cta:focus-visible, .review-source:focus-visible, .press-card:focus-visible {
       outline: 2px solid var(--green); outline-offset: 3px;
     }
     .review-cta {
@@ -1264,7 +1283,15 @@
         <span class="g-stars" style="--pct:100%" aria-hidden="true">★★★★★</span>
         <span class="g-count">3 Google reviews</span>
       </a>
-      <div class="review-deck" data-review-deck aria-label="Google reviews of the Montgomery Small Business Initiative">
+      <div class="review-deck" data-review-deck aria-label="Reviews and testimonials for the Montgomery Small Business Initiative">
+        <figure class="review-card review-card--quote">
+          <a class="review-source" href="https://www.facebook.com/shoplocalmontgomery/posts/pfbid0PRfcPRcYQx24fg42MXz8eSNMCGhouz1me3B2ED5oVUzftkWgUG5TQKG7Cv6LFgakl" target="_blank" rel="noopener"><svg class="review-source-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg><span>Posted on Facebook</span></a>
+          <blockquote class="review-text" cite="https://www.facebook.com/shoplocalmontgomery/posts/pfbid0PRfcPRcYQx24fg42MXz8eSNMCGhouz1me3B2ED5oVUzftkWgUG5TQKG7Cv6LFgakl"><p>Congratulations to the Montgomery Small Business Initiative!</p><p>It’s great to see Montgomery Township, NJ High School students using their talents and initiative to connect with and gain real-world experience in our local business community.</p></blockquote>
+          <figcaption class="review-author">
+            <img class="review-avatar review-avatar--logo" src="/img/testimonials/shop-local-montgomery.png" alt="" width="40" height="40" loading="lazy">
+            <span class="review-who"><a class="review-name" href="https://www.facebook.com/shoplocalmontgomery" target="_blank" rel="noopener">Shop Local Montgomery</a><span class="review-date">Montgomery Business Association <span class="review-when">· August 2026</span></span></span>
+          </figcaption>
+        </figure>
         <figure class="review-card">
           <span class="g-stars review-stars" style="--pct:100%" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
           <blockquote class="review-text"><p>As the owner of a small strategic brand marketing firm in Montgomery, NJ, I was delighted when the Montgomery Small Business Initiative, a student organization formed and led by Montgomery HS students, asked me to speak on…</p></blockquote>

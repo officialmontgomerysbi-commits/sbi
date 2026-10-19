@@ -29,10 +29,15 @@ test('parses the real Google Doc export format (CRLF, instructions on top)', asy
   assert.ok(!data.current.some((n) => /Rules|montgomerysbi/.test(n)), 'instruction text must not leak in');
 });
 
-test('the current index.html already matches the doc (sync is a no-op)', async () => {
+// index.html follows the LIVE doc (the daily sync rewrites it), so it is never
+// compared to the saved fixture: once the doc changed, that check failed every
+// day and blocked the sync itself. What must hold is that syncing is stable.
+test('syncing index.html is idempotent (a second sync changes nothing)', async () => {
   const data = R.parse(await readFixture());
   const html = await readFile(path.join(root, 'index.html'), 'utf8');
-  assert.equal(R.injectStatic(html, data), html);
+  const once = R.injectStatic(html, data);
+  assert.equal(R.injectStatic(once, data), once);
+  for (const name of data.current) assert.ok(once.includes(`>${name}</div>`), `${name} rendered`);
 });
 
 test('everything above the first heading is ignored', () => {
@@ -152,7 +157,8 @@ test('injectStatic handles an empty section and stays idempotent', async () => {
 
 test('injectStatic keeps CRLF files CRLF and stays a no-op when in sync', async () => {
   const data = R.parse(await readFixture());
-  const crlf = (await readFile(path.join(root, 'index.html'), 'utf8')).replace(/\r?\n/g, '\r\n');
+  const crlf = R.injectStatic((await readFile(path.join(root, 'index.html'), 'utf8')).replace(/\r?\n/g, '\r\n'), data);
+  assert.ok(!/[^\r]\n/.test(crlf), 'synced CRLF file stays CRLF');
   assert.equal(R.injectStatic(crlf, data), crlf);
   const moved = R.injectStatic(crlf, R.parse('PAST CONSULTANTS\nNew Person'));
   assert.ok(moved.includes('<div class="consultant-name past">New Person</div>\r\n'));

@@ -1,8 +1,9 @@
 /*!
  * Testimonials deck
  *
- * Turns the Google reviews that scripts/sync-reviews.mjs writes into
- * index.html into a stacked, flip-through carousel: arrows, dots, swipe,
+ * Turns the Google reviews and hand-picked testimonials that
+ * scripts/sync-reviews.mjs writes into index.html into a stacked,
+ * flip-through carousel: arrows, dots, swipe,
  * arrow keys, click the card peeking behind, and a gentle autoplay that stops
  * as soon as someone interacts (and never runs with reduced motion).
  * Without JavaScript the reviews simply show as a list.
