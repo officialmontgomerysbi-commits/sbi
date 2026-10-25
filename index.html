@@ -113,13 +113,21 @@
           "Sales strategy",
           "Business education"
         ],
+        "founder": [
+          { "@type": "Person", "name": "Dilan Mehta" },
+          { "@type": "Person", "name": "Suchir Parikh" },
+          { "@type": "Person", "name": "Danel Rodriguez" },
+          { "@type": "Person", "name": "Ryan Patel" },
+          { "@type": "Person", "name": "Rey Sen" },
+          { "@type": "Person", "name": "Yuvi Ahlawat" }
+        ],
         "member": [
-          { "@type": "Person", "name": "Dilan Mehta", "jobTitle": "President" },
-          { "@type": "Person", "name": "Suchir Parikh", "jobTitle": "Vice President" },
-          { "@type": "Person", "name": "Danel Rodriguez", "jobTitle": "Vice President" },
-          { "@type": "Person", "name": "Ryan Patel", "jobTitle": "Head of Administration" },
-          { "@type": "Person", "name": "Rey Sen", "jobTitle": "Director of Recruitment & Training" },
-          { "@type": "Person", "name": "Yuvi Ahlawat", "jobTitle": "Director of External Affairs" }
+          { "@type": "Person", "name": "Dilan Mehta", "jobTitle": ["President", "Co-Founder"] },
+          { "@type": "Person", "name": "Suchir Parikh", "jobTitle": ["Vice President", "Co-Founder"] },
+          { "@type": "Person", "name": "Danel Rodriguez", "jobTitle": ["Vice President", "Co-Founder"] },
+          { "@type": "Person", "name": "Ryan Patel", "jobTitle": ["Head of Administration", "Co-Founder"] },
+          { "@type": "Person", "name": "Rey Sen", "jobTitle": ["Director of Recruitment & Training", "Co-Founder"] },
+          { "@type": "Person", "name": "Yuvi Ahlawat", "jobTitle": ["Director of External Affairs", "Co-Founder"] }
         ]
       },
       {
@@ -484,6 +492,25 @@
       color: var(--dark);
       margin-bottom: 3px;
     }
+    .board-name {
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: 4px 8px;
+      margin-bottom: 4px;
+    }
+    .board-name h3 { margin-bottom: 0; }
+    .founder-badge {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--green);
+      background: var(--green-pale);
+      border: 1px solid var(--green-light);
+      border-radius: 999px;
+      padding: 4px 8px;
+      white-space: nowrap;
+    }
     .board-info .role {
       font-size: 0.72rem;
       font-weight: 600;
@@ -777,6 +804,8 @@
     }
     .review-deck.is-enhanced { perspective: 1200px; }
     .review-deck.is-enhanced .review-card.no-anim { transition: none; }
+    /* keep the off-screen review cards from widening the page */
+    .testimonials-block { overflow: hidden; }
     .review-bar {
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 0.75rem 1rem;
@@ -1079,7 +1108,10 @@
       <img src="SAM_1028.jpeg" class="board-photo" width="1200" height="900" loading="lazy" decoding="async"
            alt="Dilan Mehta, President of the Montgomery Small Business Initiative in Montgomery NJ"/>
       <div class="board-info">
-        <h3>Dilan Mehta</h3>
+        <div class="board-name">
+          <h3>Dilan Mehta</h3>
+          <span class="founder-badge">Co-Founder</span>
+        </div>
         <span class="role">President</span>
       </div>
     </div>
@@ -1089,7 +1121,10 @@
       <img src="SAM_1030.jpeg" class="board-photo" width="1200" height="900" loading="lazy" decoding="async"
            alt="Suchir Parikh, Vice President of the Montgomery Small Business Initiative student consulting organization"/>
       <div class="board-info">
-        <h3>Suchir Parikh</h3>
+        <div class="board-name">
+          <h3>Suchir Parikh</h3>
+          <span class="founder-badge">Co-Founder</span>
+        </div>
         <span class="role">Vice President</span>
       </div>
     </div>
@@ -1099,7 +1134,10 @@
       <img src="SAM_1033.jpeg" class="board-photo" width="1200" height="900" loading="lazy" decoding="async"
            alt="Danel Rodriguez, Vice President of the Montgomery Small Business Initiative student consulting network"/>
       <div class="board-info">
-        <h3>Danel Rodriguez</h3>
+        <div class="board-name">
+          <h3>Danel Rodriguez</h3>
+          <span class="founder-badge">Co-Founder</span>
+        </div>
         <span class="role">Vice President</span>
       </div>
     </div>
@@ -1109,7 +1147,10 @@
       <img src="SAM_1023.jpeg" class="board-photo" width="1200" height="900" loading="lazy" decoding="async"
            alt="Ryan Patel, Head of Administration at the Montgomery Small Business Initiative in Skillman New Jersey"/>
       <div class="board-info">
-        <h3>Ryan Patel</h3>
+        <div class="board-name">
+          <h3>Ryan Patel</h3>
+          <span class="founder-badge">Co-Founder</span>
+        </div>
         <span class="role">Head of Administration</span>
       </div>
     </div>
@@ -1119,7 +1160,10 @@
       <img src="SAM_1037.jpeg" class="board-photo" width="1200" height="900" loading="lazy" decoding="async"
            alt="Rey Sen, Director of Recruitment and Training for the Montgomery Small Business Initiative student consulting organization"/>
       <div class="board-info">
-        <h3>Rey Sen</h3>
+        <div class="board-name">
+          <h3>Rey Sen</h3>
+          <span class="founder-badge">Co-Founder</span>
+        </div>
         <span class="role">Director of Recruitment &amp; Training</span>
       </div>
     </div>
@@ -1129,7 +1173,10 @@
       <img src="IMG_6339.jpeg" class="board-photo" width="972" height="874" loading="lazy" decoding="async"
            alt="Yuvi Ahlawat, Director of External Affairs at the Montgomery Small Business Initiative"/>
       <div class="board-info">
-        <h3>Yuvi Ahlawat</h3>
+        <div class="board-name">
+          <h3>Yuvi Ahlawat</h3>
+          <span class="founder-badge">Co-Founder</span>
+        </div>
         <span class="role">Director of External Affairs</span>
       </div>
     </div>

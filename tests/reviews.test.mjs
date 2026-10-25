@@ -295,3 +295,8 @@ test('testimonials.js and the page wiring are in place', async () => {
   const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   assert.equal(ld['@graph'][0].subjectOf.length, 2);
 });
+
+test('off-screen review cards are clipped so the page never scrolls sideways', async () => {
+  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  assert.ok(html.includes('.testimonials-block { overflow: hidden; }'));
+});
