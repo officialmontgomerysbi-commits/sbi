@@ -207,12 +207,12 @@ test('board photos keep their square crop and the FAQ is gone', async () => {
   assert.ok(!/faq/i.test(html), 'no FAQ section, nav link, styles or FAQPage schema');
 });
 
-test('every board member shows the Co-Founder badge and is listed as a founder', async () => {
+test('every board member shows Co-Founder under their title and is listed as a founder', async () => {
   const html = await readFile(path.join(root, 'index.html'), 'utf8');
   const board = html.slice(html.indexOf('<section id="board">'), html.indexOf('</section>', html.indexOf('<section id="board">')));
   const cards = (board.match(/class="board-card"/g) || []).length;
   assert.equal(cards, 6);
-  assert.equal((board.match(/<span class="founder-badge">Co-Founder<\/span>/g) || []).length, cards);
+  assert.equal((board.match(/<span class="role">[^<]+<\/span>\s*<span class="cofounder">Co-Founder<\/span>/g) || []).length, cards);
   const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   const org = ld['@graph'][0];
   assert.equal(org.founder.length, 6);
