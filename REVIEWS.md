@@ -46,7 +46,7 @@ Quotes over 420 characters get cut on a word with a "Read the full post" link, s
 
 ### Turning on automatic review updates (one time, about 10 minutes)
 
-Until this is done, the site shows the 3 reviews saved on Oct 2, 2026. Google cut off two of them, so they end with "Read the full review on Google".
+Until this is done, the site shows the 4 reviews saved by hand (Oct 2, 2026 snapshot plus the KASIA review added Nov 21, 2026). Google cut off three of them, so they end with "Read the full review on Google".
 
 1. Go to https://console.cloud.google.com/ and sign in as **officialmontgomerysbi@gmail.com**.
 2. Create a project named `montgomerysbi-site` (top bar project picker, then **New Project**).

@@ -1,10 +1,19 @@
 {
-  "source": "Manual snapshot of the Google Business Profile on 2026-10-02. Two long reviews were cut off by Google Maps and dates are approximate. Replaced automatically with full text and exact dates once GOOGLE_PLACES_API_KEY is set (see REVIEWS.md).",
+  "source": "Manual snapshot of the Google Business Profile, last updated 2026-11-21 (KASIA review of 2026-11-03 added from Google's new-review email). Some long reviews were cut off by Google and dates are approximate. Replaced automatically with full text and exact dates once GOOGLE_PLACES_API_KEY is set (see REVIEWS.md).",
   "placeId": "ChIJEcT_FXeGswoRwDxK6p32LhM",
-  "fetchedAt": "2026-10-02T21:15:00Z",
+  "fetchedAt": "2026-11-21T19:10:00Z",
   "rating": 5,
-  "userRatingCount": 3,
+  "userRatingCount": 4,
   "reviews": [
+    {
+      "author": "KASIA",
+      "authorUri": null,
+      "photoUri": null,
+      "rating": 5,
+      "text": "We've had a great experience working with the SBI consultants at Kasia Market! The interns have been …",
+      "publishTime": "2026-11-03T17:59:14Z",
+      "reviewUri": null
+    },
     {
       "author": "Bill D'Arienzo",
       "authorUri": null,
